@@ -1,10 +1,10 @@
 # Universal Skills & Engineering Framework
 
-This repository maintains agent skills and global rules configured for pair programming, full-stack software development, and autonomous agent workflows.
+This repository maintains agent skills and global rules configured for pair programming, full-stack software development, UI element selection, and autonomous agent workflows.
 
 ---
 
-## The Triad Architecture
+## The Integrated Architecture
 
 ```
 +--------------------------------------------------------------------+
@@ -27,11 +27,28 @@ This repository maintains agent skills and global rules configured for pair prog
 |            Automated Code Reviews, Testing & Docs Standards        |
 |    strict-rules -> code-reviewer -> duplication -> docs-writer     |
 +--------------------------------------------------------------------+
+                                  |
+                                  v
++--------------------------------------------------------------------+
+|                         4. AGENTATION                              |
+|         Visual Feedback Toolbar, Element Selection & UI Annotation |
+|  agentation -> select any part of apps -> agentation-self-driving  |
++--------------------------------------------------------------------+
 ```
 
 ---
 
-## 1. Google Gemini CLI (`gemini-cli`)
+## 1. Agentation (`agentation`)
+Sourced from [`benjitaylor/agentation`](https://github.com/benjitaylor/agentation.git).
+
+| Skill | Description | Usage |
+|---|---|---|
+| **`agentation`** | Adds the Agentation visual feedback toolbar to React / Next.js apps to select elements, annotate pages, and connect to MCP. | UI Feedback Toolbar |
+| **`agentation-self-driving`** | Autonomously drives browser sessions, inspects UI elements, and adds design feedback annotations via Agentation. | Visual Critique Mode |
+
+---
+
+## 2. Google Gemini CLI (`gemini-cli`)
 Sourced from [`google-gemini/gemini-cli`](https://github.com/google-gemini/gemini-cli.git).
 
 | Skill | Description | Usage |
@@ -52,7 +69,7 @@ Sourced from [`google-gemini/gemini-cli`](https://github.com/google-gemini/gemin
 
 ---
 
-## 2. GitHub Spec Kit (`spec-kit`)
+## 3. GitHub Spec Kit (`spec-kit`)
 Sourced from [`github/spec-kit`](https://github.com/github/spec-kit.git).
 
 | Skill | Description | Stage |
@@ -70,7 +87,7 @@ Sourced from [`github/spec-kit`](https://github.com/github/spec-kit.git).
 
 ---
 
-## 3. MakePlane (`plane`)
+## 4. MakePlane (`plane`)
 Sourced from [`makeplane/plane`](https://github.com/makeplane/plane.git).
 
 | Skill | Description | Usage |
@@ -85,4 +102,4 @@ Sourced from [`makeplane/plane`](https://github.com/makeplane/plane.git).
 ---
 
 ## Global Integration Status
-All three plugins (**`gemini-cli`**, **`spec-kit`**, and **`plane`**) are installed globally under `~/.gemini/config/plugins/` and enabled machine-wide. Their global rules automatically activate whenever creating any applications, making architectural decisions, or executing software tasks.
+All four plugins (**`agentation`**, **`gemini-cli`**, **`spec-kit`**, and **`plane`**) are installed globally under `~/.gemini/config/plugins/` and enabled machine-wide. Their global rules automatically activate whenever creating any applications, selecting UI elements, making architectural decisions, or executing software tasks.

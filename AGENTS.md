@@ -1,4 +1,4 @@
-# Global Rules: Plane + Spec Kit + Gemini CLI Triad
+# Global Engineering, Architecture & UI Feedback Rules
 
 These rules apply globally across all sessions, projects, application creation, software development, and decision-making processes.
 
@@ -50,7 +50,21 @@ These rules apply globally across all sessions, projects, application creation, 
 
 ---
 
-## 4. Automatic Skill Invocation
+## 4. Visual Selection & Feedback (Agentation)
+- **Select Any Part of Apps**: Whenever creating or bootstrapping React / Next.js / frontend web applications, install `agentation` as a dev dependency and mount `<Agentation />` in development mode:
+  ```tsx
+  {process.env.NODE_ENV === "development" && (
+    <Agentation endpoint="http://localhost:4747" />
+  )}
+  ```
+- **Annotation Ingestion & Pinpoint Targeting**:
+  - When users provide visual annotations or element feedback, query pending annotations via `agentation-mcp` tools or parse structured Agentation output.
+  - Use exact CSS selectors (e.g. `.sidebar > button.primary`) and bounding boxes to locate and modify code precisely without guesswork.
+- **Autonomous UI Critique**: Use `agentation-self-driving` to drive browser sessions, inspect visual hierarchy, and annotate design improvements.
+
+---
+
+## 5. Automatic Skill Invocation
 Whenever performing relevant tasks in any project or session, automatically invoke and apply the appropriate skill:
 - **Spec-Driven Planning & Decisions**: Use `spec-kit`, `speckit-specify`, `speckit-plan`, `speckit-clarify`, `speckit-tasks`, `speckit-implement`, `speckit-constitution`, `speckit-analyze`, `speckit-converge`.
 - **Plane & Work Item Management**: Use `plane`.
@@ -60,3 +74,4 @@ Whenever performing relevant tasks in any project or session, automatically invo
 - **Code Review & Audits**: Use `code-reviewer`, `review-duplication`, `string-reviewer`.
 - **Documentation**: Use `docs-writer`, `docs-changelog`.
 - **CI & TUI Automation**: Use `ci`, `tui-tester`, `agent-tui`, `behavioral-evals`.
+- **Visual Feedback & UI Selection**: Use `agentation`, `agentation-self-driving`.
