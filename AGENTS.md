@@ -1,4 +1,4 @@
-# Global Engineering, Architecture, UI/UX & Feedback Rules
+# Global Engineering, Architecture, UI/UX, Superpowers & Feedback Rules
 
 These rules apply globally across all sessions, projects, application creation, software development, and decision-making processes.
 
@@ -21,7 +21,16 @@ These rules apply globally across all sessions, projects, application creation, 
 
 ---
 
-## 2. Specification-Driven Development (GitHub Spec Kit)
+## 2. Superpowers: Core Engineering & Agent Discipline
+- **Mandatory Brainstorming**: Before starting any creative work (features, components, planning, architecture), explore alternatives and clarify requirements with the user (`brainstorming`).
+- **Systematic Debugging**: When encountering any bug or test failure, do NOT guess. Follow the 4-phase process: Reproduce -> Isolate root cause -> Formulate hypothesis -> Implement minimal targeted fix (`systematic-debugging`).
+- **Test-Driven Development (TDD)**: Write failing tests first before writing implementation code (`test-driven-development`).
+- **Verification Before Completion (Evidence Over Assertions)**: NEVER claim work is done or fixed without running verification commands and confirming output (`verification-before-completion`).
+- **Execution Discipline**: Write multi-step plans before touching code (`writing-plans`), use isolated worktrees/branches (`using-git-worktrees`), and conduct rigorous code reviews (`requesting-code-review`, `receiving-code-review`).
+
+---
+
+## 3. Specification-Driven Development (GitHub Spec Kit)
 - **Code Serves Specifications**: Never write code directly from raw requests without an approved specification (`spec.md`) and technical plan (`plan.md`).
 - **Constitutional Gates**:
   - **Simplicity Gate**: Initial project structures must remain minimal (=3 modules/packages). Reject premature abstraction.
@@ -33,7 +42,7 @@ These rules apply globally across all sessions, projects, application creation, 
 
 ---
 
-## 3. Project Management & Workflow Tracking (MakePlane)
+## 4. Project Management & Workflow Tracking (MakePlane)
 - **Decompose Work into Work Items**: Break down non-trivial work into initiatives, modules/epics, and work items/tasks.
 - **Track Progress and States**: Keep items categorized by state (`backlog`, `unstarted`, `started`, `completed`) with clear priority (`urgent`, `high`, `medium`, `low`).
 - **Plane Tool Integration**: When a Plane workspace or MCP server is available, leverage it to manage work items and cycles.
@@ -44,7 +53,7 @@ These rules apply globally across all sessions, projects, application creation, 
 
 ---
 
-## 4. Strict Engineering, Quality & Code Review (Google Gemini CLI)
+## 5. Strict Engineering, Quality & Code Review (Google Gemini CLI)
 - **Zero-Tolerance Typing**: Strictly forbid unvalidated `any` and unconstrained `unknown`. Narrow all unknown types with type guards or Zod schemas.
 - **Promise & Error Safety**: Never leave unhandled floating promises (`@typescript-eslint/no-floating-promises`). Exhaustive matching in `switch` statements (`checkExhaustive`).
 - **Testing Hygiene**:
@@ -59,7 +68,7 @@ These rules apply globally across all sessions, projects, application creation, 
 
 ---
 
-## 5. Visual Selection & Feedback (Agentation)
+## 6. Visual Selection & Feedback (Agentation)
 - **Select Any Part of Apps**: Whenever creating React / Next.js / frontend web applications, install `agentation` as a dev dependency and mount `<Agentation />` in development mode:
   ```tsx
   {process.env.NODE_ENV === "development" && (
@@ -73,9 +82,13 @@ These rules apply globally across all sessions, projects, application creation, 
 
 ---
 
-## 6. Automatic Skill Invocation
+## 7. Automatic Skill Invocation
 Whenever performing relevant tasks in any project or session, automatically invoke and apply the appropriate skill:
 - **UI/UX Design, Styling & Polish**: Use `taste-skill` (or `design-taste-frontend`).
+- **Creative Exploration**: Use `brainstorming`.
+- **Debugging & Fixing**: Use `systematic-debugging`.
+- **Feature & Fix Development**: Use `test-driven-development`.
+- **Work Completion Verification**: Use `verification-before-completion`.
 - **Visual Feedback & UI Selection**: Use `agentation`, `agentation-self-driving`.
 - **Spec-Driven Planning & Decisions**: Use `spec-kit`, `speckit-specify`, `speckit-plan`, `speckit-clarify`, `speckit-tasks`, `speckit-implement`, `speckit-constitution`, `speckit-analyze`, `speckit-converge`.
 - **Plane & Work Item Management**: Use `plane`.
