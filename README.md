@@ -22,39 +22,66 @@ Whenever creating or modifying any apps, features, or software, execute across t
                                      |
                                      v
 +--------------------------------------------------------------------------+
-| 3. UI/UX PRO MAX & TASTE SKILL (Ultra-Modern UI/UX Excellence)           |
+| 3. MULTI-AGENT UX DEBATE & SYNTHESIS (Frontend Agent Skills)             |
+|    Adversarial debate across 6 specialized perspectives:                 |
+|    Usability • Information Architecture • Accessibility • Interactions   |
+|    Visual Anti-Slop • Content Design -> Best-of-the-Best UX Synthesis    |
++--------------------------------------------------------------------------+
+                                     |
+                                     v
++--------------------------------------------------------------------------+
+| 4. UI/UX PRO MAX & TASTE SKILL (Ultra-Modern UI/UX Excellence)           |
 |    79 UI Styles • 192 Palettes • 74 Font Pairings • 119 UX Guidelines    |
 |    figma.com & x.ai bar • Anti-slop • One section/screen • Real assets   |
 +--------------------------------------------------------------------------+
                                      |
                                      v
 +--------------------------------------------------------------------------+
-| 4. MAKEPLANE (Agile Project Management & Tracking)                       |
+| 5. MAKEPLANE (Agile Project Management & Tracking)                       |
 |    Work Items -> Modules & Epics -> Cycles -> Branch Naming -> PRs       |
 +--------------------------------------------------------------------------+
                                      |
                                      v
 +--------------------------------------------------------------------------+
-| 5. GOOGLE GEMINI CLI (Engineering Standards & Quality)                   |
+| 6. GOOGLE GEMINI CLI (Engineering Standards & Quality)                   |
 |    Strict Types -> Deterministic Tests -> Anti-Duplication -> Docs       |
 +--------------------------------------------------------------------------+
                                      |
                                      v
 +--------------------------------------------------------------------------+
-| 6. AGENTATION (Visual Feedback Toolbar & Element Selection)              |
+| 7. AGENTATION (Visual Feedback Toolbar & Element Selection)              |
 |    Click to select any UI element -> Exact DOM selectors -> MCP sync     |
 +--------------------------------------------------------------------------+
                                      |
                                      v
 +--------------------------------------------------------------------------+
-| 7. EVIDENCE-BASED VERIFICATION & CODE REVIEW                             |
+| 8. EVIDENCE-BASED VERIFICATION & CODE REVIEW                             |
 |    verification-before-completion -> review-duplication -> code-reviewer  |
 +--------------------------------------------------------------------------+
 ```
 
 ---
 
-## 1. UI/UX Pro Max (`ui-ux-pro-max`)
+## 1. Frontend Agent Skills (`frontend-agent-skills`)
+Sourced from [`hueyexe/frontend-agent-skills`](https://github.com/hueyexe/frontend-agent-skills.git).
+Orchestrates the **Multi-Agent UX Debate & Synthesis Protocol**: every UI/UX decision is thoroughly argued across distinct viewpoints before synthesizing the best-of-the-best UX.
+
+| Skill | Role in Multi-Agent Debate | Domain |
+|---|---|---|
+| **`frontend-agent-skills`** | Debate Moderator & Executive Synthesizer | Multi-Agent UX Orchestration |
+| **`ux-usability-foundations`** | Usability & Cognitive Load Advocate | Feedback, affordances, error prevention |
+| **`information-architecture-navigation`** | Information Architecture Advocate | Hierarchy, wayfinding, progressive disclosure |
+| **`accessibility-inclusive-design`** | Accessibility & Inclusion Advocate | WCAG AA, keyboard navigation, focus rings |
+| **`interaction-patterns-components`** | Interaction Patterns Advocate | Battle-tested UI primitives over modal traps |
+| **`forms-inputs-checkout`** | Forms & Data Entry Advocate | Inline forms, validation on blur, error clarity |
+| **`ui-visual-composition`** | Visual Layout & Hierarchy Advocate | Spacing rhythm, bento grids, balanced gutters |
+| **`ux-writing-content-design`** | Content Design & Microcopy Advocate | Plain language, [Verb + Object] CTAs, recovery text |
+| **`ux-research-discovery-testing`** | Research & Usability Testing Advocate | User testing protocols, cognitive walkthroughs |
+| **`design-systems-frontend-architecture`** | Frontend Architecture Advocate | Token architecture, component contracts |
+
+---
+
+## 2. UI/UX Pro Max (`ui-ux-pro-max`)
 Sourced from [`nextlevelbuilder/ui-ux-pro-max-skill`](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill.git).
 
 | Skill | Description | Usage |
@@ -69,13 +96,13 @@ Sourced from [`nextlevelbuilder/ui-ux-pro-max-skill`](https://github.com/nextlev
 
 ---
 
-## 2. Taste Skill (`taste-skill` / `design-taste-frontend`)
+## 3. Taste Skill (`taste-skill` / `design-taste-frontend`)
 Sourced from [`Leonxlnx/taste-skill`](https://github.com/Leonxlnx/taste-skill.git).
 * Primary UI/UX anti-slop engine: `figma.com` & `x.ai` bar, one section per screen, quiet hover micro-interactions, responsive at 1440/1024/768/390.
 
 ---
 
-## 3. Superpowers (`superpowers`)
+## 4. Superpowers (`superpowers`)
 Sourced from [`obra/superpowers`](https://github.com/obra/superpowers.git).
 * **Brainstorming first (`brainstorming`)**: Explore alternatives, evaluate trade-offs, and clarify requirements before building.
 * **TDD (`test-driven-development`)**: Write failing tests first (Red), verify failure, implement minimal code (Green), and refactor.
@@ -85,29 +112,29 @@ Sourced from [`obra/superpowers`](https://github.com/obra/superpowers.git).
 
 ---
 
-## 4. GitHub Spec Kit (`spec-kit`)
+## 5. GitHub Spec Kit (`spec-kit`)
 Sourced from [`github/spec-kit`](https://github.com/github/spec-kit.git).
 * Master SDD orchestrator (`spec-kit`, `speckit-constitution`, `speckit-specify`, `speckit-clarify`, `speckit-plan`, `speckit-checklist`, `speckit-tasks`, `speckit-analyze`, `speckit-implement`, `speckit-converge`).
 
 ---
 
-## 5. MakePlane (`plane`)
+## 6. MakePlane (`plane`)
 Sourced from [`makeplane/plane`](https://github.com/makeplane/plane.git).
 * Agile project management (`plane`, `branch-name`, `create-pull-request`, `react-doctor`, `release-notes`, `translate`).
 
 ---
 
-## 6. Google Gemini CLI (`gemini-cli`)
+## 7. Google Gemini CLI (`gemini-cli`)
 Sourced from [`google-gemini/gemini-cli`](https://github.com/google-gemini/gemini-cli.git).
 * Strict development rules, zero-any typing, code reviewer, review duplication, string reviewer, docs writer, ci, tui tester, behavioral evals.
 
 ---
 
-## 7. Agentation (`agentation`)
+## 8. Agentation (`agentation`)
 Sourced from [`benjitaylor/agentation`](https://github.com/benjitaylor/agentation.git).
 * Visual feedback toolbar, element selection, and autonomous UI critique.
 
 ---
 
 ## Global Integration Status
-All seven plugins (**`ui-ux-pro-max`**, **`taste-skill`**, **`superpowers`**, **`spec-kit`**, **`plane`**, **`gemini-cli`**, and **`agentation`**) are installed globally under `~/.gemini/config/plugins/` and enabled machine-wide. Their global rules automatically activate whenever creating any applications, designing UI/UX, debugging, testing, planning, selecting UI elements, or executing software tasks.
+All eight plugins (**`frontend-agent-skills`**, **`ui-ux-pro-max`**, **`taste-skill`**, **`superpowers`**, **`spec-kit`**, **`plane`**, **`gemini-cli`**, and **`agentation`**) containing **65 skills** are installed globally under `~/.gemini/config/plugins/` and enabled machine-wide. Their global rules automatically activate whenever creating any applications, designing UI/UX, debating user flows, debugging, testing, planning, selecting UI elements, or executing software tasks.

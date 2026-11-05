@@ -14,7 +14,7 @@ These rules apply globally across all sessions, projects, application creation, 
 
 ---
 
-## 2. Ultra-Modern UI/UX Excellence (Highest Priority for All UI/UX)
+## 2. Ultra-Modern UI/UX Excellence (Taste Skill & UI/UX Pro Max)
 **Whenever doing anything related to user interfaces, design, styling, layout, components, or user experience—even any small or big thing—strictly enforce modern UI/UX design standards using `ui-ux-pro-max` and `taste-skill`:**
 - **The Modern Standard**: Always make interfaces ultra-modern, intentional, refined, and functional. Meet the standard of `figma.com` and `x.ai`. Reject generic templates, bootstrap-looking layouts, or "AI slop".
 - **Modern Paradigms**:
@@ -43,7 +43,23 @@ These rules apply globally across all sessions, projects, application creation, 
 
 ---
 
-## 3. Specification-Driven Development (GitHub Spec Kit)
+## 3. Multi-Agent UX Debate & Synthesis Protocol (`frontend-agent-skills`)
+**Whenever designing, planning, or creating UI/UX, convene a multi-agent debate across specialized viewpoints. Clash their arguments to eliminate blind spots, and synthesize the executive decision for the "best of the best" UX:**
+- **The 6 Specialized Advocates**:
+  1. **Usability & Cognitive Load Advocate (`ux-usability-foundations`)**: Fights for zero ambiguity, clear affordances, minimal cognitive load, instant visual feedback, and robust error prevention.
+  2. **Information Architecture Advocate (`information-architecture-navigation`)**: Fights for logical content hierarchy, wayfinding, progressive disclosure, and predictable page flow.
+  3. **Accessibility & Inclusion Advocate (`accessibility-inclusive-design`)**: Fights for WCAG AA compliance, complete keyboard navigation, visible focus rings, semantic HTML, and screen reader parity.
+  4. **Interaction Patterns & Forms Advocate (`interaction-patterns-components` & `forms-inputs-checkout`)**: Fights against modal traps and multistep fatigue; demands inline forms, clear validation on blur, and battle-tested components.
+  5. **Visual Craft & Anti-Slop Advocate (`taste-skill` & `ui-visual-composition`)**: Fights against generic templates; demands figma.com/x.ai fidelity, bento grids, balanced gutters, and quiet micro-interactions.
+  6. **Content Design & Microcopy Advocate (`ux-writing-content-design`)**: Fights against vague tech jargon; demands plain language, helpful inline error recovery, and [Verb + Object] action buttons.
+- **Debate & Synthesis Workflow**:
+  1. **Stage 1: Multi-Agent Argument**: Present alternative UX layouts and challenge each proposal against cognitive load, friction points, and edge cases.
+  2. **Stage 2: Clash & Critique**: Each advocate identifies failure modes in the competing options.
+  3. **Stage 3: Executive UX Synthesis**: Select the definitive, cohesive design taking the best features from each perspective, prioritizing overall user experience above all else.
+
+---
+
+## 4. Specification-Driven Development (GitHub Spec Kit)
 - **Code Serves Specifications**: Never write code directly from raw requests without an approved specification (`spec.md`) and technical plan (`plan.md`).
 - **Constitutional Gates**:
   - **Simplicity Gate**: Initial project structures must remain minimal (=3 modules/packages). Reject premature abstraction.
@@ -51,11 +67,11 @@ These rules apply globally across all sessions, projects, application creation, 
   - **Complexity Tracking**: Every introduced complexity must be justified in `plan.md`.
   - **Integration-First**: Real schemas and services over fragile mock suites.
 - **SDD Lifecycle Workflow**:
-  `speckit-constitution` -> `speckit-specify` -> `speckit-clarify` -> `speckit-plan` (planning UI with Taste Skill & UI/UX Pro Max) -> `speckit-checklist` -> `speckit-tasks` -> `speckit-analyze` -> `speckit-implement` -> `speckit-converge`.
+  `speckit-constitution` -> `speckit-specify` -> `speckit-clarify` -> `speckit-plan` (planning UI with Multi-Agent UX Debate, Taste Skill & UI/UX Pro Max) -> `speckit-checklist` -> `speckit-tasks` -> `speckit-analyze` -> `speckit-implement` -> `speckit-converge`.
 
 ---
 
-## 4. Project Management & Workflow Tracking (MakePlane)
+## 5. Project Management & Workflow Tracking (MakePlane)
 - **Decompose Work into Work Items**: Break down non-trivial work into initiatives, modules/epics, and work items/tasks.
 - **Track Progress and States**: Keep items categorized by state (`backlog`, `unstarted`, `started`, `completed`) with clear priority (`urgent`, `high`, `medium`, `low`).
 - **Plane Tool Integration**: When a Plane workspace or MCP server is available, leverage it to manage work items and cycles.
@@ -66,7 +82,7 @@ These rules apply globally across all sessions, projects, application creation, 
 
 ---
 
-## 5. Strict Engineering, Quality & Code Review (Google Gemini CLI)
+## 6. Strict Engineering, Quality & Code Review (Google Gemini CLI)
 - **Zero-Tolerance Typing**: Strictly forbid unvalidated `any` and unconstrained `unknown`. Narrow all unknown types with type guards or Zod schemas.
 - **Promise & Error Safety**: Never leave unhandled floating promises (`@typescript-eslint/no-floating-promises`). Exhaustive matching in `switch` statements (`checkExhaustive`).
 - **Testing Hygiene**:
@@ -81,7 +97,7 @@ These rules apply globally across all sessions, projects, application creation, 
 
 ---
 
-## 6. Visual Selection & Feedback (Agentation)
+## 7. Visual Selection & Feedback (Agentation)
 - **Select Any Part of Apps**: Whenever creating React / Next.js / frontend web applications, install `agentation` as a dev dependency and mount `<Agentation />` in development mode:
   ```tsx
   {process.env.NODE_ENV === "development" && (
@@ -95,11 +111,11 @@ These rules apply globally across all sessions, projects, application creation, 
 
 ---
 
-## 7. Execution Order Across All Tools
+## 8. Execution Order Across All Tools
 Whenever you build any app, feature, or software:
 1. **Start on Superpowers**: `brainstorming` -> `writing-plans`
-2. **Spec Kit**: `speckit-specify` -> `speckit-plan`
-3. **UI/UX Excellence**: Apply `ui-ux-pro-max`, `ui-styling`, and `taste-skill` to define ultra-modern styling, design systems, and responsive layouts
+2. **Spec Kit**: `speckit-specify` -> `speckit-clarify` -> `speckit-plan`
+3. **Multi-Agent UX Debate & Design**: Convene `frontend-agent-skills` to argue UI/UX alternatives, clash edge cases, and synthesize the best-in-class UX; style with `taste-skill` and `ui-ux-pro-max`
 4. **Plane**: `branch-name` -> work items & sprint cycles
 5. **Superpowers + Gemini CLI**: `test-driven-development` -> strict typing & implementation
 6. **Agentation**: Mount `<Agentation />` toolbar to visually click & select any part of the app
