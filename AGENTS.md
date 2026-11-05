@@ -14,7 +14,30 @@ These rules apply globally across all sessions, projects, application creation, 
 
 ---
 
-## 2. Ultra-Modern UI/UX Excellence (Taste Skill & UI/UX Pro Max)
+## 2. Global UI & UX Development Standards (v1.0) - 2026-11-04
+**Apply these standards whenever creating, modifying or reviewing any software interface:**
+
+1. **Always use UI UX Pro Max for visual design and design-system decisions.**
+2. **Use UX usability and information architecture skills to evaluate the actual user experience.**
+3. **Understand the target users and their tasks before designing.**
+4. **Never prioritise visual beauty over usability.**
+5. **Keep navigation, menus, forms, buttons and workflows clear and predictable.**
+6. **Use consistent branding, typography, spacing, colours and reusable components.**
+7. **Every action must provide clear feedback, including loading, success, error and empty states.**
+8. **Minimise unnecessary clicks, pop-ups and confusing interactions.**
+9. **Make interfaces responsive across desktop, tablet and mobile.**
+10. **Follow accessibility standards, including keyboard navigation, readable contrast and clear focus states.**
+11. **Test complete user journeys, not just individual screens.**
+12. **Review the finished interface for usability problems before considering the work complete.**
+13. **Preserve the existing application architecture, functionality and branding.**
+14. **Create reusable design components so the same design standards can be applied to future applications.**
+
+> **FINAL PRINCIPLE**:  
+> **Build software that looks professional, feels natural and is easy for people to understand without needing instructions.**
+
+---
+
+## 3. Ultra-Modern UI/UX Excellence (Taste Skill & UI/UX Pro Max)
 **Whenever doing anything related to user interfaces, design, styling, layout, components, or user experience—even any small or big thing—strictly enforce modern UI/UX design standards using `ui-ux-pro-max` and `taste-skill`:**
 - **The Modern Standard**: Always make interfaces ultra-modern, intentional, refined, and functional. Meet the standard of `figma.com` and `x.ai`. Reject generic templates, bootstrap-looking layouts, or "AI slop".
 - **Modern Paradigms**:
@@ -43,7 +66,7 @@ These rules apply globally across all sessions, projects, application creation, 
 
 ---
 
-## 3. Multi-Agent UX Debate & Synthesis Protocol (`frontend-agent-skills`)
+## 4. Multi-Agent UX Debate & Synthesis Protocol (`frontend-agent-skills`)
 **Whenever designing, planning, or creating UI/UX, convene a multi-agent debate across specialized viewpoints. Clash their arguments to eliminate blind spots, and synthesize the executive decision for the "best of the best" UX:**
 - **The 6 Specialized Advocates**:
   1. **Usability & Cognitive Load Advocate (`ux-usability-foundations`)**: Fights for zero ambiguity, clear affordances, minimal cognitive load, instant visual feedback, and robust error prevention.
@@ -59,7 +82,7 @@ These rules apply globally across all sessions, projects, application creation, 
 
 ---
 
-## 4. Specification-Driven Development (GitHub Spec Kit)
+## 5. Specification-Driven Development (GitHub Spec Kit)
 - **Code Serves Specifications**: Never write code directly from raw requests without an approved specification (`spec.md`) and technical plan (`plan.md`).
 - **Constitutional Gates**:
   - **Simplicity Gate**: Initial project structures must remain minimal (=3 modules/packages). Reject premature abstraction.
@@ -71,7 +94,7 @@ These rules apply globally across all sessions, projects, application creation, 
 
 ---
 
-## 5. Project Management & Workflow Tracking (MakePlane)
+## 6. Project Management & Workflow Tracking (MakePlane)
 - **Decompose Work into Work Items**: Break down non-trivial work into initiatives, modules/epics, and work items/tasks.
 - **Track Progress and States**: Keep items categorized by state (`backlog`, `unstarted`, `started`, `completed`) with clear priority (`urgent`, `high`, `medium`, `low`).
 - **Plane Tool Integration**: When a Plane workspace or MCP server is available, leverage it to manage work items and cycles.
@@ -82,7 +105,7 @@ These rules apply globally across all sessions, projects, application creation, 
 
 ---
 
-## 6. Strict Engineering, Quality & Code Review (Google Gemini CLI)
+## 7. Strict Engineering, Quality & Code Review (Google Gemini CLI)
 - **Zero-Tolerance Typing**: Strictly forbid unvalidated `any` and unconstrained `unknown`. Narrow all unknown types with type guards or Zod schemas.
 - **Promise & Error Safety**: Never leave unhandled floating promises (`@typescript-eslint/no-floating-promises`). Exhaustive matching in `switch` statements (`checkExhaustive`).
 - **Testing Hygiene**:
@@ -97,7 +120,7 @@ These rules apply globally across all sessions, projects, application creation, 
 
 ---
 
-## 7. Visual Selection & Feedback (Agentation)
+## 8. Visual Selection & Feedback (Agentation)
 - **Select Any Part of Apps**: Whenever creating React / Next.js / frontend web applications, install `agentation` as a dev dependency and mount `<Agentation />` in development mode:
   ```tsx
   {process.env.NODE_ENV === "development" && (
@@ -111,12 +134,12 @@ These rules apply globally across all sessions, projects, application creation, 
 
 ---
 
-## 8. Execution Order Across All Tools
+## 9. Execution Order Across All Tools
 Whenever you build any app, feature, or software:
 1. **Start on Superpowers**: `brainstorming` -> `writing-plans`
 2. **Spec Kit**: `speckit-specify` -> `speckit-clarify` -> `speckit-plan`
-3. **Multi-Agent UX Debate & Design**: Convene `frontend-agent-skills` to argue UI/UX alternatives, clash edge cases, and synthesize the best-in-class UX; style with `taste-skill` and `ui-ux-pro-max`
+3. **Multi-Agent UX Debate & Global Standards**: Apply `Global UI & UX Development Standards (v1.0)` and convene `frontend-agent-skills` to debate alternatives and synthesize the best-in-class UX; style with `ui-ux-pro-max` and `taste-skill`
 4. **Plane**: `branch-name` -> work items & sprint cycles
 5. **Superpowers + Gemini CLI**: `test-driven-development` -> strict typing & implementation
 6. **Agentation**: Mount `<Agentation />` toolbar to visually click & select any part of the app
-7. **Verification & Review**: `verification-before-completion` -> `review-duplication` -> `code-reviewer` -> `create-pull-request`
+7. **Verification & Review**: Complete journey testing -> `verification-before-completion` -> `review-duplication` -> `code-reviewer` -> `create-pull-request`

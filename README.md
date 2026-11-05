@@ -56,9 +56,34 @@ Whenever creating or modifying any apps, features, or software, execute across t
                                      v
 +--------------------------------------------------------------------------+
 | 8. EVIDENCE-BASED VERIFICATION & CODE REVIEW                             |
-|    verification-before-completion -> review-duplication -> code-reviewer  |
+|    Complete Journey Testing -> verification-before-completion ->         |
+|    review-duplication -> code-reviewer                                   |
 +--------------------------------------------------------------------------+
 ```
+
+---
+
+## Global UI & UX Development Standards (v1.0) - 2026-11-04
+
+Apply these standards whenever creating, modifying or reviewing any software interface:
+
+1. **Always use UI UX Pro Max for visual design and design-system decisions.**
+2. **Use UX usability and information architecture skills to evaluate the actual user experience.**
+3. **Understand the target users and their tasks before designing.**
+4. **Never prioritise visual beauty over usability.**
+5. **Keep navigation, menus, forms, buttons and workflows clear and predictable.**
+6. **Use consistent branding, typography, spacing, colours and reusable components.**
+7. **Every action must provide clear feedback, including loading, success, error and empty states.**
+8. **Minimise unnecessary clicks, pop-ups and confusing interactions.**
+9. **Make interfaces responsive across desktop, tablet and mobile.**
+10. **Follow accessibility standards, including keyboard navigation, readable contrast and clear focus states.**
+11. **Test complete user journeys, not just individual screens.**
+12. **Review the finished interface for usability problems before considering the work complete.**
+13. **Preserve the existing application architecture, functionality and branding.**
+14. **Create reusable design components so the same design standards can be applied to future applications.**
+
+> **FINAL PRINCIPLE**:  
+> **Build software that looks professional, feels natural and is easy for people to understand without needing instructions.**
 
 ---
 
