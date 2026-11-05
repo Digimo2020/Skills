@@ -14,19 +14,32 @@ These rules apply globally across all sessions, projects, application creation, 
 
 ---
 
-## 2. Taste Skill: UI/UX & Design Excellence (Highest Priority for UI)
-**Whenever doing anything related to user interfaces, design, styling, layout, components, or user experience—even small or big things—strictly plan and apply Taste Skill:**
-- **The Bar**: Meet the standard of `figma.com` and `x.ai`: intentional, refined, functional, and modern. Zero tolerance for generic templates or "AI slop".
-- **The 9 House Rules**:
-  1. **No Captions Under Visuals**: Keep visuals clean; credits in one footer line.
-  2. **Every Visual Renders Fully**: Zero broken assets across 1440, 1024, 768, and 390 viewports.
-  3. **One Section Per Screen**: Hero stands alone on the first screen; every section is planned for 1 or 2 screens at 1440x900 without adjacent headers peeking in.
-  4. **Equal Left and Right Edges**: Strict alignment to container margins (`.wrap`).
-  5. **Quiet Micro-Interactions**: Cards lift 2px on hover, images zoom 1.02–1.03 inside frames, buttons step cleanly on hover/press. No chaotic tilt, carousels, or scroll reveals.
-  6. **Real Product UI & Genuine Assets**: Show actual product UI cards, real full-color brand icons, genuine photos/renders.
-  7. **Confident, Plain Copy**: Plainly state what is built/sold, for whom, with one hard fact. Headings name things directly; buttons use [Verb + Object].
-  8. **Visual Restraint by Domain**: Shaders, canvas scenes, and dark tech themes are strictly for tech, developer tools, and gaming. All other apps use clean type, flat color, and subtle elevation.
-  9. **Single Cohesive System**: One button pair, one card family, one radius scale, one typography hierarchy, and accessible contrast.
+## 2. Ultra-Modern UI/UX Excellence (Highest Priority for All UI/UX)
+**Whenever doing anything related to user interfaces, design, styling, layout, components, or user experience—even any small or big thing—strictly enforce modern UI/UX design standards using `ui-ux-pro-max` and `taste-skill`:**
+- **The Modern Standard**: Always make interfaces ultra-modern, intentional, refined, and functional. Meet the standard of `figma.com` and `x.ai`. Reject generic templates, bootstrap-looking layouts, or "AI slop".
+- **Modern Paradigms**:
+  - **Bento Grids & Structured Cards**: Asymmetrical modular sections with clear hierarchy.
+  - **Modern SaaS & Minimalist Aesthetics**: Crisp typography, high contrast, subtle borders, and delicate elevation.
+  - **Sophisticated Glass & Depth**: Subtle `backdrop-blur`, layered surfaces, and fine-line borders where appropriate.
+  - **The 9 House Rules of Taste**:
+    1. **No Captions Under Visuals**: Keep visuals clean; credits in one footer line.
+    2. **Every Visual Renders Fully**: Zero broken assets across 1440, 1024, 768, and 390 viewports.
+    3. **One Section Per Screen**: Hero stands alone on the first screen; every section is planned for 1 or 2 screens at 1440x900 without adjacent headers peeking in.
+    4. **Equal Left and Right Edges**: Strict alignment to container margins (`.wrap`).
+    5. **Quiet Micro-Interactions**: Cards lift 2px on hover, images zoom 1.02–1.03 inside frames, buttons step cleanly on hover/press. No chaotic tilt, carousels, or scroll reveals.
+    6. **Real Product UI & Genuine Assets**: Show actual product UI cards, real full-color brand icons, genuine photos/renders.
+    7. **Confident, Plain Copy**: Plainly state what is built/sold, for whom, with one hard fact. Headings name things directly; buttons use [Verb + Object].
+    8. **Visual Restraint by Domain**: Shaders, canvas scenes, and dark tech themes are strictly for tech, developer tools, and gaming. All other apps use clean type, flat color, and subtle elevation.
+    9. **Single Cohesive System**: One button pair, one card family, one radius scale, one typography hierarchy, and accessible contrast.
+- **The 10 UX Priorities**:
+  1. *Accessibility*: Contrast 4.5:1, visible focus rings, aria-labels on icon buttons.
+  2. *Touch Targets*: Minimum 44×44px with 8px+ spacing between interactive elements.
+  3. *Performance & CLS*: Zero layout shifts (`CLS < 0.1`), WebP/AVIF formats.
+  4. *Responsive Rhythm*: Mobile-first breakpoints (1440, 1024, 768, 390) without horizontal scroll.
+  5. *Typography*: Base 16px body, 1.5 line height, curated font pairings.
+  6. *Transitions*: 150–250ms micro-interactions; respect `prefers-reduced-motion`.
+  7. *Forms*: Visible permanent labels, errors beneath inputs with clear advice.
+  8. *Navigation*: Clear active states, predictable back behavior.
 
 ---
 
@@ -38,7 +51,7 @@ These rules apply globally across all sessions, projects, application creation, 
   - **Complexity Tracking**: Every introduced complexity must be justified in `plan.md`.
   - **Integration-First**: Real schemas and services over fragile mock suites.
 - **SDD Lifecycle Workflow**:
-  `speckit-constitution` -> `speckit-specify` -> `speckit-clarify` -> `speckit-plan` (planning UI with Taste Skill) -> `speckit-checklist` -> `speckit-tasks` -> `speckit-analyze` -> `speckit-implement` -> `speckit-converge`.
+  `speckit-constitution` -> `speckit-specify` -> `speckit-clarify` -> `speckit-plan` (planning UI with Taste Skill & UI/UX Pro Max) -> `speckit-checklist` -> `speckit-tasks` -> `speckit-analyze` -> `speckit-implement` -> `speckit-converge`.
 
 ---
 
@@ -86,7 +99,7 @@ These rules apply globally across all sessions, projects, application creation, 
 Whenever you build any app, feature, or software:
 1. **Start on Superpowers**: `brainstorming` -> `writing-plans`
 2. **Spec Kit**: `speckit-specify` -> `speckit-plan`
-3. **Taste Skill**: Enforce UI/UX anti-slop rules on all visual elements
+3. **UI/UX Excellence**: Apply `ui-ux-pro-max`, `ui-styling`, and `taste-skill` to define ultra-modern styling, design systems, and responsive layouts
 4. **Plane**: `branch-name` -> work items & sprint cycles
 5. **Superpowers + Gemini CLI**: `test-driven-development` -> strict typing & implementation
 6. **Agentation**: Mount `<Agentation />` toolbar to visually click & select any part of the app
