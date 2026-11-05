@@ -4,29 +4,29 @@ These rules apply globally across all sessions, projects, application creation, 
 
 ---
 
-## 1. Taste Skill: UI/UX & Design Excellence (HIGHEST PRIORITY FOR UI)
-**Whenever doing anything related to user interfaces, design, styling, layout, components, or user experience—even any small or big thing—strictly plan and apply Taste Skill.**
-- **The Bar**: All UI/UX must meet the standard of `figma.com` and `x.ai`: intentional, refined, functional, and modern. Zero tolerance for generic templates or "AI slop".
-- **The 9 House Rules**:
-  1. **No Captions Under Visuals**: Never put descriptions or apologies under images; licensing credits go in a single footer line.
-  2. **Every Visual Renders Fully**: Assets and diagrams draw cleanly across 1440, 1024, 768, and 390 viewports with zero empty grounds.
-  3. **One Section Per Screen**: The hero stands alone on the first screen; every section is planned for 1 or 2 screens at 1440x900 without adjacent headings peeking in.
-  4. **Equal Left and Right Edges**: Strict alignment to container margins (`.wrap`). No asymmetrical horizontal spills or side-scrolling.
-  5. **Quiet Micro-Interactions**: Cards lift 2px on hover, images zoom 1.02–1.03 inside frames, buttons step cleanly on hover/press. No chaotic tilt, carousels, or scroll reveals.
-  6. **Real Product UI & Genuine Assets**: Show actual product UI cards, real full-color brand icons, genuine photos/renders. Never drawn lookalike logos or cheesy stock photos.
-  7. **Confident, Plain Copy**: Plainly state what is built/sold, for whom, with one hard fact. Headings name things directly; buttons use [Verb + Object].
-  8. **Visual Restraint by Domain**: Shaders, canvas scenes, and dark tech themes are strictly for tech, developer tools, and gaming. All other apps use clean type, flat color, and subtle elevation.
-  9. **Single Cohesive System**: One button pair, one card family, one radius scale, one typography hierarchy, and accessible contrast.
-- **Verification**: Test responsive layout at 1440px, 1024px, 768px, and 390px.
+## 1. Core Mandate: Superpowers First
+**Whenever creating or modifying any apps, features, components, or software, ALWAYS start with Superpowers first before writing code:**
+- **Brainstorm First (`brainstorming`)**: Explore design alternatives, clarify intent, evaluate edge cases and trade-offs.
+- **Write Plans First (`writing-plans`)**: Structure multi-step work into clear phases before touching code.
+- **Test-Driven Development (`test-driven-development`)**: Write failing tests first (Red), verify failure, implement minimal code (Green), and refactor.
+- **Verification Before Completion (`verification-before-completion`)**: Evidence over assertions. Always run verification commands and verify output before claiming completion.
+- **Systematic Debugging (`systematic-debugging`)**: When errors arise, systematically reproduce, isolate root cause, and apply minimal targeted fixes.
 
 ---
 
-## 2. Superpowers: Core Engineering & Agent Discipline
-- **Mandatory Brainstorming**: Before starting any creative work (features, components, planning, architecture), explore alternatives and clarify requirements with the user (`brainstorming`).
-- **Systematic Debugging**: When encountering any bug or test failure, do NOT guess. Follow the 4-phase process: Reproduce -> Isolate root cause -> Formulate hypothesis -> Implement minimal targeted fix (`systematic-debugging`).
-- **Test-Driven Development (TDD)**: Write failing tests first before writing implementation code (`test-driven-development`).
-- **Verification Before Completion (Evidence Over Assertions)**: NEVER claim work is done or fixed without running verification commands and confirming output (`verification-before-completion`).
-- **Execution Discipline**: Write multi-step plans before touching code (`writing-plans`), use isolated worktrees/branches (`using-git-worktrees`), and conduct rigorous code reviews (`requesting-code-review`, `receiving-code-review`).
+## 2. Taste Skill: UI/UX & Design Excellence (Highest Priority for UI)
+**Whenever doing anything related to user interfaces, design, styling, layout, components, or user experience—even small or big things—strictly plan and apply Taste Skill:**
+- **The Bar**: Meet the standard of `figma.com` and `x.ai`: intentional, refined, functional, and modern. Zero tolerance for generic templates or "AI slop".
+- **The 9 House Rules**:
+  1. **No Captions Under Visuals**: Keep visuals clean; credits in one footer line.
+  2. **Every Visual Renders Fully**: Zero broken assets across 1440, 1024, 768, and 390 viewports.
+  3. **One Section Per Screen**: Hero stands alone on the first screen; every section is planned for 1 or 2 screens at 1440x900 without adjacent headers peeking in.
+  4. **Equal Left and Right Edges**: Strict alignment to container margins (`.wrap`).
+  5. **Quiet Micro-Interactions**: Cards lift 2px on hover, images zoom 1.02–1.03 inside frames, buttons step cleanly on hover/press. No chaotic tilt, carousels, or scroll reveals.
+  6. **Real Product UI & Genuine Assets**: Show actual product UI cards, real full-color brand icons, genuine photos/renders.
+  7. **Confident, Plain Copy**: Plainly state what is built/sold, for whom, with one hard fact. Headings name things directly; buttons use [Verb + Object].
+  8. **Visual Restraint by Domain**: Shaders, canvas scenes, and dark tech themes are strictly for tech, developer tools, and gaming. All other apps use clean type, flat color, and subtle elevation.
+  9. **Single Cohesive System**: One button pair, one card family, one radius scale, one typography hierarchy, and accessible contrast.
 
 ---
 
@@ -82,19 +82,12 @@ These rules apply globally across all sessions, projects, application creation, 
 
 ---
 
-## 7. Automatic Skill Invocation
-Whenever performing relevant tasks in any project or session, automatically invoke and apply the appropriate skill:
-- **UI/UX Design, Styling & Polish**: Use `taste-skill` (or `design-taste-frontend`).
-- **Creative Exploration**: Use `brainstorming`.
-- **Debugging & Fixing**: Use `systematic-debugging`.
-- **Feature & Fix Development**: Use `test-driven-development`.
-- **Work Completion Verification**: Use `verification-before-completion`.
-- **Visual Feedback & UI Selection**: Use `agentation`, `agentation-self-driving`.
-- **Spec-Driven Planning & Decisions**: Use `spec-kit`, `speckit-specify`, `speckit-plan`, `speckit-clarify`, `speckit-tasks`, `speckit-implement`, `speckit-constitution`, `speckit-analyze`, `speckit-converge`.
-- **Plane & Work Item Management**: Use `plane`.
-- **Git Branch Creation**: Use `branch-name`.
-- **Pull Requests**: Use `create-pull-request` or `pr-creator`.
-- **React Diagnostics**: Use `react-doctor`.
-- **Code Review & Audits**: Use `code-reviewer`, `review-duplication`, `string-reviewer`.
-- **Documentation**: Use `docs-writer`, `docs-changelog`.
-- **CI & TUI Automation**: Use `ci`, `tui-tester`, `agent-tui`, `behavioral-evals`.
+## 7. Execution Order Across All Tools
+Whenever you build any app, feature, or software:
+1. **Start on Superpowers**: `brainstorming` -> `writing-plans`
+2. **Spec Kit**: `speckit-specify` -> `speckit-plan`
+3. **Taste Skill**: Enforce UI/UX anti-slop rules on all visual elements
+4. **Plane**: `branch-name` -> work items & sprint cycles
+5. **Superpowers + Gemini CLI**: `test-driven-development` -> strict typing & implementation
+6. **Agentation**: Mount `<Agentation />` toolbar to visually click & select any part of the app
+7. **Verification & Review**: `verification-before-completion` -> `review-duplication` -> `code-reviewer` -> `create-pull-request`
