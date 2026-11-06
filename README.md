@@ -1,6 +1,6 @@
 # Universal Skills & Engineering Framework
 
-A private collection of **67 agent skills** and global rules for full-stack development, UI/UX, engineering discipline and autonomous agent workflows. One prompt installs them into any AI coding tool, and every skill is security-checked with [NVIDIA SkillSpector](https://github.com/NVIDIA/SkillSpector) before it is used.
+A public collection of **67 agent skills** and global rules for full-stack development, UI/UX, engineering discipline and autonomous agent workflows. One prompt installs them into any AI coding tool, and every skill is security-checked with [NVIDIA SkillSpector](https://github.com/NVIDIA/SkillSpector) before it is used.
 
 **Contents:** [Quick Start](#quick-start-copy-this-prompt) · [Directions](#directions) · [Command Reference](#command-reference) · [Repo Layout](#repo-layout) · [Lifecycle](#the-unified-development-lifecycle) · [UI & UX Standards](#global-ui--ux-development-standards-v10---2026-11-04) · [Skill Catalog](#skill-catalog)
 
@@ -11,13 +11,11 @@ A private collection of **67 agent skills** and global rules for full-stack deve
 Paste this into any AI coding agent that can run terminal commands: Claude Code, Google Antigravity, Gemini CLI, OpenAI Codex, Cursor and similar. It works for a first install and for every update.
 
 ```text
-Set up my agent skills from the private GitHub repo Digimo2020/Skills.
+Set up my agent skills from https://github.com/Digimo2020/Skills.
 
 1. Get the repo:
    - If ~/Skills exists, run: git -C ~/Skills pull
    - Otherwise run: git clone https://github.com/Digimo2020/Skills.git ~/Skills
-   The repo is private. If git cannot access it, stop and ask me to sign in to GitHub
-   (for example with: gh auth login). Never ask me to paste a password or token in chat.
 2. Make sure NVIDIA SkillSpector is installed (needs uv):
    - If the skillspector command is missing: uv tool install git+https://github.com/NVIDIA/skillspector.git
    - Otherwise: uv tool upgrade skillspector
@@ -29,8 +27,8 @@ Set up my agent skills from the private GitHub repo Digimo2020/Skills.
    Only after I agree, record it with:
    ~/Skills/scripts/skills.sh approve <skill> <APPROVE|CAUTION> "<reason>"
    Never approve a REJECT verdict.
-5. If any files in ~/Skills changed, commit them with the message
-   "chore: update upstream skills" and push to origin main.
+5. If any files in ~/Skills changed and I have push access to that repo, commit them with the
+   message "chore: update upstream skills" and push to origin main. Otherwise skip this step.
 6. Read ~/Skills/AGENTS.md and follow its rules for all work in this session.
 7. Tell me which skills were added, updated or blocked, and anything that failed.
 ```
@@ -45,19 +43,15 @@ Set up my agent skills from the private GitHub repo Digimo2020/Skills.
 
 The quick-start prompt does all of this. To do it by hand:
 
-1. **Sign in to GitHub** so you can clone the private repo. The simplest way is the GitHub CLI:
-   ```bash
-   brew install gh && gh auth login
-   ```
-2. **Clone the repo:**
+1. **Clone the repo** (no GitHub account needed):
    ```bash
    git clone https://github.com/Digimo2020/Skills.git ~/Skills
    ```
-3. **Install SkillSpector** (needs [uv](https://docs.astral.sh/uv/)):
+2. **Install SkillSpector** (needs [uv](https://docs.astral.sh/uv/)):
    ```bash
    uv tool install git+https://github.com/NVIDIA/skillspector.git
    ```
-4. **Check and install all skills:**
+3. **Check and install all skills:**
    ```bash
    ~/Skills/scripts/skills.sh install
    ```
@@ -97,7 +91,7 @@ Pull the newest version of every upstream skill, check them, and reinstall on th
 ```bash
 cd ~/Skills && git pull && ./scripts/skills.sh update
 ```
-Then commit and push any changes so your other machines get them. To update only the repo without installing, use `./scripts/skills.sh sync`.
+If you own the repo (or a fork), commit and push any changes so your other machines get them. To update only the repo without installing, use `./scripts/skills.sh sync`.
 
 ### 4. Add or Remove Skills
 
