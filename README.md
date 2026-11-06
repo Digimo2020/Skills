@@ -1,26 +1,29 @@
 # Universal Skills & Engineering Framework
 
-This repository maintains agent skills and global rules configured for pair programming, full-stack software development, UI/UX excellence, engineering discipline, and autonomous agent workflows.
+A private collection of **67 agent skills** and global rules for full-stack development, UI/UX, engineering discipline and autonomous agent workflows. One prompt installs them into any AI coding tool, and every skill is security-checked with [NVIDIA SkillSpector](https://github.com/NVIDIA/SkillSpector) before it is used.
+
+**Contents:** [Quick Start](#quick-start-copy-this-prompt) · [Directions](#directions) · [Command Reference](#command-reference) · [Repo Layout](#repo-layout) · [Lifecycle](#the-unified-development-lifecycle) · [UI & UX Standards](#global-ui--ux-development-standards-v10---2026-11-04) · [Skill Catalog](#skill-catalog)
 
 ---
 
-## Set Up on Any AI Tool (Copy This Prompt)
+## Quick Start (Copy This Prompt)
 
-Paste the prompt below into any AI coding agent that can run terminal commands: Claude Code, Google Antigravity, Gemini CLI, OpenAI Codex, Cursor and similar. The same prompt works for a first install and for updates.
+Paste this into any AI coding agent that can run terminal commands: Claude Code, Google Antigravity, Gemini CLI, OpenAI Codex, Cursor and similar. It works for a first install and for every update.
 
 ```text
-Set up my agent skills from https://github.com/Digimo2020/Skills.
+Set up my agent skills from the private GitHub repo Digimo2020/Skills.
 
-1. If ~/Skills does not exist, run: git clone https://github.com/Digimo2020/Skills.git ~/Skills
-   If it exists, run: git -C ~/Skills pull
-2. If the skillspector command is missing, install NVIDIA SkillSpector (needs uv):
-   uv tool install git+https://github.com/NVIDIA/skillspector.git
-   If it exists, update it: uv tool upgrade skillspector
+1. Get the repo:
+   - If ~/Skills exists, run: git -C ~/Skills pull
+   - Otherwise run: git clone https://github.com/Digimo2020/Skills.git ~/Skills
+   The repo is private. If git cannot access it, stop and ask me to sign in to GitHub
+   (for example with: gh auth login). Never ask me to paste a password or token in chat.
+2. Make sure NVIDIA SkillSpector is installed (needs uv):
+   - If the skillspector command is missing: uv tool install git+https://github.com/NVIDIA/skillspector.git
+   - Otherwise: uv tool upgrade skillspector
 3. Run: ~/Skills/scripts/skills.sh update
-   This pulls the newest version of every upstream skill in skills-sources.txt, security-checks
-   every new or changed skill with SkillSpector, and copies only the skills that pass into the
-   AI tools on this machine (~/.claude/skills, ~/.agents/skills, ~/.gemini/skills,
-   ~/.gemini/antigravity/skills).
+   This pulls the newest version of every upstream skill, security-checks every new or changed
+   skill, and installs only the skills that pass into the AI tools on this machine.
 4. If any skill is reported as BLOCKED, review it with the skill-inspector skill
    (the new version is in ~/Skills/quarantine/<skill>). Show me your verdict and evidence.
    Only after I agree, record it with:
@@ -32,24 +35,114 @@ Set up my agent skills from https://github.com/Digimo2020/Skills.
 7. Tell me which skills were added, updated or blocked, and anything that failed.
 ```
 
-**Chat-only tools** (ChatGPT, Claude.ai, Gemini web) can't run terminal commands, so they can't use the prompt. Download a skill's folder from `skills/` as a zip and upload it wherever the app accepts skills or project files. For the rules alone, paste `AGENTS.md` into the custom instructions.
+**Chat-only apps** (ChatGPT, Claude.ai, Gemini web) can't run terminal commands. Download a skill folder from `skills/` as a zip and upload it wherever the app accepts skills or project files, or paste `AGENTS.md` into the custom instructions.
 
-### Security Check (NVIDIA SkillSpector)
+---
 
-No skill reaches the repo or an AI tool without a security check:
+## Directions
 
-1. [SkillSpector](https://github.com/NVIDIA/SkillSpector) statically scans the skill without running it (`--no-llm`, so file contents stay on your machine; only dependency names go to OSV.dev for known-vulnerability lookups).
-2. `SAFE` or `CAUTION` passes. `DO_NOT_INSTALL` blocks the skill: a new skill is held in `quarantine/`, and an updated one keeps its previous version.
-3. A blocked skill is reviewed with the **`skill-inspector`** skill, which reads the flagged source and gives an `APPROVE`, `CAUTION` or `REJECT` verdict. The scanner matches keywords, so documentation that mentions `.env` or tokens is often flagged without being dangerous.
-4. Every verdict is stored with the skill's content hash in [`skills-verified.txt`](skills-verified.txt). If any file in a skill changes, the hash changes and the skill is checked again.
+### 1. Set Up a New Machine
 
-### Add or Update Skills
+The quick-start prompt does all of this. To do it by hand:
 
-- **Add an upstream skill:** add one line to [`skills-sources.txt`](skills-sources.txt) (`owner/repo  path/to/skill`, or `npm:<package>  path/to/skill`), then run `./scripts/skills.sh sync` and push.
-- **Add your own skill:** put its folder in `skills/` and run `./scripts/skills.sh scan`.
-- **Pull the newest versions:** `./scripts/skills.sh sync` (repo only) or `./scripts/skills.sh update` (repo, then every AI tool on this machine).
-- **Install on this machine only:** `./scripts/skills.sh install`.
-- **Check every skill:** `./scripts/skills.sh scan`.
+1. **Sign in to GitHub** so you can clone the private repo. The simplest way is the GitHub CLI:
+   ```bash
+   brew install gh && gh auth login
+   ```
+2. **Clone the repo:**
+   ```bash
+   git clone https://github.com/Digimo2020/Skills.git ~/Skills
+   ```
+3. **Install SkillSpector** (needs [uv](https://docs.astral.sh/uv/)):
+   ```bash
+   uv tool install git+https://github.com/NVIDIA/skillspector.git
+   ```
+4. **Check and install all skills:**
+   ```bash
+   ~/Skills/scripts/skills.sh install
+   ```
+
+Skills are copied into each AI tool found on the machine:
+
+| Tool | Skill folder |
+|---|---|
+| Claude Code | `~/.claude/skills` |
+| OpenAI Codex | `~/.agents/skills` |
+| Gemini CLI | `~/.gemini/skills` |
+| Google Antigravity | `~/.gemini/antigravity/skills` |
+
+Restart the tool or open a new session to pick up new skills.
+
+### 2. Security Check
+
+No skill reaches the repo or an AI tool without passing this check:
+
+1. **Scan.** SkillSpector statically scans the skill without running it. Scans use `--no-llm`, so file contents stay on your machine; only dependency names go to OSV.dev to look up known vulnerabilities.
+2. **Gate.** `SAFE` or `CAUTION` passes. `DO_NOT_INSTALL` blocks the skill: a new skill is held in `quarantine/`, and an updated skill keeps its previous version.
+3. **Review.** A blocked skill is reviewed with the **`skill-inspector`** skill, which reads the flagged source and gives an `APPROVE`, `CAUTION` or `REJECT` verdict with evidence. The scanner matches keywords, so documentation that mentions `.env` or tokens is often flagged without being dangerous.
+4. **Approve.** After you agree with the verdict, record it:
+   ```bash
+   ./scripts/skills.sh approve <skill> <APPROVE|CAUTION> "<reason>"
+   ```
+5. **Re-check on change.** Every verdict is stored with the skill's content hash in [`skills-verified.txt`](skills-verified.txt). If any file in a skill changes, it is checked again.
+
+To check every skill now:
+```bash
+./scripts/skills.sh scan
+```
+
+### 3. Update
+
+Pull the newest version of every upstream skill, check them, and reinstall on this machine:
+```bash
+cd ~/Skills && git pull && ./scripts/skills.sh update
+```
+Then commit and push any changes so your other machines get them. To update only the repo without installing, use `./scripts/skills.sh sync`.
+
+### 4. Add or Remove Skills
+
+- **Add an upstream skill:** add one line to [`skills-sources.txt`](skills-sources.txt), then sync and push:
+  ```text
+  owner/repo            path/to/skill-folder
+  npm:<package-name>    path/to/skill-folder
+  ```
+  ```bash
+  ./scripts/skills.sh sync
+  ```
+- **Add your own skill:** put its folder (with a `SKILL.md`) in `skills/`, then run `./scripts/skills.sh scan` and `./scripts/skills.sh install`.
+- **Remove a skill:** this deletes it from the repo, `skills-sources.txt`, `skills-verified.txt` and every AI tool on this machine:
+  ```bash
+  ./scripts/skills.sh remove <skill>
+  ```
+
+Commit and push after any change.
+
+---
+
+## Command Reference
+
+| Command | What it does |
+|---|---|
+| `./scripts/skills.sh update` | `sync`, then `install` |
+| `./scripts/skills.sh sync` | Pull the newest upstream skills into the repo, checking each one |
+| `./scripts/skills.sh install` | Check every skill, then install the ones that pass into all AI tools |
+| `./scripts/skills.sh scan` | Check every skill and print the result; changes nothing else |
+| `./scripts/skills.sh approve <skill> <APPROVE\|CAUTION> "<reason>"` | Record a reviewed verdict for a blocked skill |
+| `./scripts/skills.sh remove <skill>` | Delete a skill everywhere |
+
+---
+
+## Repo Layout
+
+| Path | Purpose |
+|---|---|
+| `skills/` | Every skill, one folder each with a `SKILL.md` |
+| `.agents/skills/` | Mirror of `skills/` for tools that read `.agents/skills` |
+| `skills-sources.txt` | Upstream source of each tracked skill |
+| `skills-verified.txt` | Security verdict and content hash for each skill |
+| `scripts/skills.sh` | Sync, check, install, approve and remove skills |
+| `quarantine/` | Blocked skills waiting for review (not committed) |
+| `AGENTS.md` | Global rules every agent follows |
 
 ---
 
@@ -130,89 +223,121 @@ Apply these standards whenever creating, modifying or reviewing any software int
 
 ---
 
-## 1. Frontend Agent Skills (`frontend-agent-skills`)
-Sourced from [`hueyexe/frontend-agent-skills`](https://github.com/hueyexe/frontend-agent-skills.git).
-Orchestrates the **Multi-Agent UX Debate & Synthesis Protocol**: every UI/UX decision is thoroughly argued across distinct viewpoints before synthesizing the best-of-the-best UX.
+## Skill Catalog
 
-| Skill | Role in Multi-Agent Debate | Domain |
+All 67 skills by group. Skills in the last group are tracked upstream and refreshed by `sync`.
+
+### 1. Frontend Agent Skills: Multi-Agent UX Debate (10)
+Source: [`hueyexe/frontend-agent-skills`](https://github.com/hueyexe/frontend-agent-skills). Every UI/UX decision is argued from distinct viewpoints before the best UX is synthesized.
+
+| Skill | What it does |
+|---|---|
+| `frontend-agent-skills` | Debate moderator and synthesizer |
+| `ux-usability-foundations` | Feedback, affordances, error prevention |
+| `information-architecture-navigation` | Hierarchy, wayfinding, progressive disclosure |
+| `accessibility-inclusive-design` | WCAG AA, keyboard navigation, focus states |
+| `interaction-patterns-components` | Proven UI patterns over modal traps |
+| `forms-inputs-checkout` | Inline forms, validation, clear errors |
+| `ui-visual-composition` | Spacing rhythm, grids, visual hierarchy |
+| `ux-writing-content-design` | Plain language, clear calls to action |
+| `ux-research-discovery-testing` | User testing and cognitive walkthroughs |
+| `design-systems-frontend-architecture` | Design tokens and component contracts |
+
+### 2. UI/UX Pro Max (7)
+Source: [`nextlevelbuilder/ui-ux-pro-max-skill`](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)
+
+| Skill | What it does |
+|---|---|
+| `ui-ux-pro-max` | 79 UI styles, 192 palettes, 74 font pairings, 119 UX guidelines across 22 stacks |
+| `ui-styling` | Styling tokens, CSS frameworks, Tailwind |
+| `design` | Visual design, logos and responsive layouts |
+| `design-system` | Full design systems: tokens, type, colour, components |
+| `brand` | Brand identity, voice and visual guidelines |
+| `slides` | Presentation design and pacing |
+| `banner-design` | Banners, heroes and promotional visuals |
+
+### 3. Taste Skill (2)
+Source: [`Leonxlnx/taste-skill`](https://github.com/Leonxlnx/taste-skill)
+
+| Skill | What it does |
+|---|---|
+| `taste-skill` | Anti-slop UI engine: one section per screen, quiet micro-interactions, responsive at 1440/1024/768/390 |
+| `design-taste-frontend` | Frontend variant of the same taste system |
+
+### 4. Superpowers: Engineering Discipline (15)
+Source: [`obra/superpowers`](https://github.com/obra/superpowers)
+
+| Skill | What it does |
+|---|---|
+| `using-superpowers` | How to find and use skills at the start of every session |
+| `brainstorming` | Explore alternatives and clarify intent before building |
+| `writing-plans` | Break multi-step work into phases |
+| `executing-plans` | Carry out a written plan step by step |
+| `test-driven-development` | Red, green, refactor |
+| `systematic-debugging` | Reproduce, isolate the root cause, fix |
+| `verification-before-completion` | Evidence before claiming work is done |
+| `subagent-driven-development` | Delegate plan steps to subagents |
+| `dispatching-parallel-agents` | Run independent tasks in parallel |
+| `using-git-worktrees` | Isolated work in git worktrees |
+| `finishing-a-development-branch` | Decide how to merge finished work |
+| `requesting-code-review` | Ask for review before merging |
+| `receiving-code-review` | Weigh review feedback before acting on it |
+| `writing-skills` | Create and test new skills |
+| `diagnosing-superpowers` | Find out why a session went wrong |
+
+### 5. GitHub Spec Kit: Specification-Driven Development (10)
+Source: [`github/spec-kit`](https://github.com/github/spec-kit). Order: constitution, specify, clarify, plan, checklist, tasks, analyze, implement, converge.
+
+| Skill | What it does |
+|---|---|
+| `spec-kit` | Orchestrates the spec-driven workflow |
+| `speckit-constitution` | Project principles and gates |
+| `speckit-specify` | Write the feature spec |
+| `speckit-clarify` | Resolve open questions in the spec |
+| `speckit-plan` | Technical plan |
+| `speckit-checklist` | Quality checklist for the spec |
+| `speckit-tasks` | Break the plan into tasks |
+| `speckit-analyze` | Check spec, plan and tasks agree |
+| `speckit-implement` | Build from the tasks |
+| `speckit-converge` | Reconcile the build with the spec |
+
+### 6. Google Gemini CLI: Engineering Standards & Review (13)
+Source: [`google-gemini/gemini-cli`](https://github.com/google-gemini/gemini-cli)
+
+| Skill | What it does |
+|---|---|
+| `gemini-cli` | Strict development rules and zero-`any` typing |
+| `code-reviewer` | Review local changes or a remote PR |
+| `review-duplication` | Find duplicated or reinvented code |
+| `string-reviewer` | Review user-facing text |
+| `docs-writer` | Write and edit technical docs |
+| `docs-changelog` | Generate release changelogs |
+| `pr-creator` | Create PRs that follow repo conventions |
+| `pr-address-comments` | Work through PR review comments |
+| `github-issue-creator` | Create well-formed GitHub issues |
+| `ci` | Monitor and fix GitHub Actions failures |
+| `behavioral-evals` | Create and run behavioral evaluations |
+| `agent-tui` | Drive terminal UI apps programmatically |
+| `tui-tester` | Test terminal UI rendering and behavior |
+
+### 7. Agentation: Visual Feedback (2)
+Source: [`benjitaylor/agentation`](https://github.com/benjitaylor/agentation)
+
+| Skill | What it does |
+|---|---|
+| `agentation` | Toolbar to click and select any UI element, with exact selectors |
+| `agentation-self-driving` | Autonomous UI critique in a browser |
+
+### 8. Backend, Data, Browser & Security (8, tracked upstream)
+Sources are listed in [`skills-sources.txt`](skills-sources.txt).
+
+| Skill | Source | What it does |
 |---|---|---|
-| **`frontend-agent-skills`** | Debate Moderator & Executive Synthesizer | Multi-Agent UX Orchestration |
-| **`ux-usability-foundations`** | Usability & Cognitive Load Advocate | Feedback, affordances, error prevention |
-| **`information-architecture-navigation`** | Information Architecture Advocate | Hierarchy, wayfinding, progressive disclosure |
-| **`accessibility-inclusive-design`** | Accessibility & Inclusion Advocate | WCAG AA, keyboard navigation, focus rings |
-| **`interaction-patterns-components`** | Interaction Patterns Advocate | Battle-tested UI primitives over modal traps |
-| **`forms-inputs-checkout`** | Forms & Data Entry Advocate | Inline forms, validation on blur, error clarity |
-| **`ui-visual-composition`** | Visual Layout & Hierarchy Advocate | Spacing rhythm, bento grids, balanced gutters |
-| **`ux-writing-content-design`** | Content Design & Microcopy Advocate | Plain language, [Verb + Object] CTAs, recovery text |
-| **`ux-research-discovery-testing`** | Research & Usability Testing Advocate | User testing protocols, cognitive walkthroughs |
-| **`design-systems-frontend-architecture`** | Frontend Architecture Advocate | Token architecture, component contracts |
-
----
-
-## 2. UI/UX Pro Max (`ui-ux-pro-max`)
-Sourced from [`nextlevelbuilder/ui-ux-pro-max-skill`](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill.git).
-
-| Skill | Description | Usage |
-|---|---|---|
-| **`ui-ux-pro-max`** | Design intelligence database: 79 UI styles, 192 product palettes, 74 font pairings, 119 UX guidelines across 22 stacks. | UI/UX Intelligence |
-| **`ui-styling`** | Advanced UI styling tokens, CSS frameworks, Tailwind, and canvas fonts. | UI Styling |
-| **`design`** | General visual design generation, responsive layouts, and aesthetic decisions. | Layout & Aesthetics |
-| **`design-system`** | End-to-end design system generation (tokens, typography, color ramps, component guidelines). | Design Systems |
-| **`brand`** | Brand identity, logo concepts, typography, tone of voice, visual identity guidelines. | Branding |
-| **`slides`** | Presentation slides design, layouts, hierarchy, visual pacing. | Presentations |
-| **`banner-design`** | Banner, hero, and promotional visual design. | Hero & Marketing |
-
----
-
-## 3. Taste Skill (`taste-skill` / `design-taste-frontend`)
-Sourced from [`Leonxlnx/taste-skill`](https://github.com/Leonxlnx/taste-skill.git).
-* Primary UI/UX anti-slop engine: `figma.com` & `x.ai` bar, one section per screen, quiet hover micro-interactions, responsive at 1440/1024/768/390.
-
----
-
-## 4. Superpowers (`superpowers`)
-Sourced from [`obra/superpowers`](https://github.com/obra/superpowers.git).
-* **Brainstorming first (`brainstorming`)**: Explore alternatives, evaluate trade-offs, and clarify requirements before building.
-* **TDD (`test-driven-development`)**: Write failing tests first (Red), verify failure, implement minimal code (Green), and refactor.
-* **Verification Before Completion (`verification-before-completion`)**: Evidence over assertions. Always run verification commands and verify output before claiming completion.
-* **Systematic Debugging (`systematic-debugging`)**: 4-phase bug investigation (reproduce, isolate root cause, hypothesize, targeted fix).
-* **Execution & Worktrees**: `writing-plans`, `executing-plans`, `using-git-worktrees`, `subagent-driven-development`.
-
----
-
-## 5. GitHub Spec Kit (`spec-kit`)
-Sourced from [`github/spec-kit`](https://github.com/github/spec-kit.git).
-* Master SDD orchestrator (`spec-kit`, `speckit-constitution`, `speckit-specify`, `speckit-clarify`, `speckit-plan`, `speckit-checklist`, `speckit-tasks`, `speckit-analyze`, `speckit-implement`, `speckit-converge`).
-
----
-
-## 6. Google Gemini CLI (`gemini-cli`)
-Sourced from [`google-gemini/gemini-cli`](https://github.com/google-gemini/gemini-cli.git).
-* Strict development rules, zero-any typing, code reviewer, review duplication, string reviewer, docs writer, ci, tui tester, behavioral evals.
-
----
-
-## 7. Agentation (`agentation`)
-Sourced from [`benjitaylor/agentation`](https://github.com/benjitaylor/agentation.git).
-* Visual feedback toolbar, element selection, and autonomous UI critique.
-
----
-
-## 8. Backend, Data, React, Browser & Security Skills (tracked upstream)
-Kept current with `./scripts/skills.sh sync` from the sources in [`skills-sources.txt`](skills-sources.txt).
-
-| Skill | Source | Domain |
-|---|---|---|
-| **`node`** | [`mcollina/skills`](https://github.com/mcollina/skills) | Node.js best practices |
-| **`neon`** | [`neondatabase/agent-skills`](https://github.com/neondatabase/agent-skills) | Neon backend: Postgres, Auth, Storage, Functions, AI Gateway |
-| **`neon-postgres`** | [`neondatabase/agent-skills`](https://github.com/neondatabase/agent-skills) | Neon Postgres connections, branching, migrations |
-| **`supabase`** | [`supabase/agent-skills`](https://github.com/supabase/agent-skills) | Supabase platform |
-| **`supabase-postgres-best-practices`** | [`supabase/agent-skills`](https://github.com/supabase/agent-skills) | Postgres performance & schema design |
-| **`react-best-practices`** | [`vercel-labs/agent-skills`](https://github.com/vercel-labs/agent-skills) | React & Next.js performance |
-| **`playwright-cli`** | [`@playwright/cli`](https://www.npmjs.com/package/@playwright/cli) | Browser automation & testing |
-| **`skill-inspector`** | [`NVIDIA/SkillSpector`](https://github.com/NVIDIA/SkillSpector) | Security review of skills before install |
-
----
-
-## Global Integration Status
-All eight skill groups (**`frontend-agent-skills`**, **`ui-ux-pro-max`**, **`taste-skill`**, **`superpowers`**, **`spec-kit`**, **`gemini-cli`**, **`agentation`**, and the upstream backend/data skills) containing **67 skills** are installed globally under `~/.gemini/config/plugins/` and enabled machine-wide. Their global rules automatically activate whenever creating any applications, designing UI/UX, debating user flows, debugging, testing, planning, selecting UI elements, or executing software tasks.
+| `node` | [`mcollina/skills`](https://github.com/mcollina/skills) | Node.js best practices |
+| `neon` | [`neondatabase/agent-skills`](https://github.com/neondatabase/agent-skills) | Neon backend: Postgres, Auth, Storage, Functions, AI Gateway |
+| `neon-postgres` | [`neondatabase/agent-skills`](https://github.com/neondatabase/agent-skills) | Neon Postgres connections, branching, migrations |
+| `supabase` | [`supabase/agent-skills`](https://github.com/supabase/agent-skills) | Supabase platform |
+| `supabase-postgres-best-practices` | [`supabase/agent-skills`](https://github.com/supabase/agent-skills) | Postgres performance and schema design |
+| `react-best-practices` | [`vercel-labs/agent-skills`](https://github.com/vercel-labs/agent-skills) | React and Next.js performance |
+| `playwright-cli` | [`@playwright/cli`](https://www.npmjs.com/package/@playwright/cli) | Browser automation and testing |
+| `skill-inspector` | [`NVIDIA/SkillSpector`](https://github.com/NVIDIA/SkillSpector) | Security review of skills before install |

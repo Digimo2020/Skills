@@ -12,6 +12,8 @@
 #   ./scripts/skills.sh approve <skill> <APPROVE|CAUTION> "<reason>"
 #                                 Record a reviewed verdict for a skill the scanner blocked (after a
 #                                 skill-inspector review). Moves it out of quarantine/ if it is there.
+#   ./scripts/skills.sh remove <skill>
+#                                 Delete a skill from the repo, its source line, its verdict, and every AI tool.
 #
 # Needs: bash, git, and the skillspector CLI:
 #   uv tool install git+https://github.com/NVIDIA/skillspector.git
@@ -190,11 +192,35 @@ approve() { # $1=name $2=verdict $3=reason
   fi
 }
 
+remove() { # $1=name
+  local name="${1:-}" home target tmp
+  [ -n "$name" ] || { log "Usage: remove <skill>"; exit 1; }
+  case "$name" in */*|.|..) log "Give a skill folder name, not a path."; exit 1 ;; esac
+  rm -rf "${SKILLS_DIR:?}/$name" "${MIRROR_DIR:?}/$name" "${QUARANTINE:?}/$name"
+  for f in "$SOURCES" "$VERIFIED"; do
+    [ -f "$f" ] || continue
+    tmp="$(mktemp)"
+    if [ "$f" = "$SOURCES" ]; then
+      # Drop the source line whose skill folder name matches; keep comments and other lines.
+      awk -v n="$name" '{ m = $2; sub(/.*\//, "", m) } !($1 !~ /^#/ && NF >= 2 && m == n)' "$f" > "$tmp"
+    else
+      awk -v n="$name" '$1 != n' "$f" > "$tmp"
+    fi
+    mv "$tmp" "$f"
+  done
+  for entry in "${TARGETS[@]}"; do
+    home="${entry%%|*}"; target="${entry#*|}"
+    [ -d "$target/$name" ] && rm -rf "${target:?}/$name" && log "  ✔ removed from $target"
+  done
+  log "  ✔ $name removed from the repo, skills-sources.txt and skills-verified.txt."
+}
+
 case "${1:-}" in
   sync) sync ;;
   install) install ;;
   update) sync; install ;;
   scan) scan ;;
   approve) shift; approve "$@" ;;
-  *) sed -n '2,19p' "$0" | sed 's/^# \{0,1\}//'; exit 1 ;;
+  remove) shift; remove "$@" ;;
+  *) sed -n '2,/^set -euo/p' "$0" | sed '$d' | sed 's/^# \{0,1\}//'; exit 1 ;;
 esac
