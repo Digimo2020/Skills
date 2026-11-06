@@ -26,6 +26,7 @@ docs-changelog  631c0c05ff1dd269  SAFE  scan  SkillSpector static scan
 docs-writer  6da99668ee679294  SAFE  scan  SkillSpector static scan
 executing-plans  068e46aab72f8998  CAUTION  scan  SkillSpector static scan
 fastify  5abeb064dea65586  APPROVE  review  Docs only (Fastify guides + tile.json metadata). PE3 hits are JWT_SECRET/.env examples in auth and config guides
+figma-implement-design  11f1e409910f6e57  SAFE  scan  SkillSpector static scan
 find-bugs  a63a4cd6fd64cbe1  SAFE  scan  SkillSpector static scan
 finishing-a-development-branch  1ac29db88a574e47  SAFE  scan  SkillSpector static scan
 forms-inputs-checkout  4f728532721d6682  SAFE  scan  SkillSpector static scan

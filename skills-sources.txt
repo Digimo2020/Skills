@@ -49,3 +49,6 @@ stripe/ai                       providers/agent-plugins/plugin/skills/stripe-bes
 
 # Cloudflare
 cloudflare/skills               skills/web-perf
+
+# OpenAI (Figma): governed by the Figma Developer Terms, not an open-source license
+openai/skills                   skills/.curated/figma-implement-design

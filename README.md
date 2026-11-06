@@ -1,6 +1,6 @@
 # Universal Skills & Engineering Framework
 
-A public collection of **84 agent skills** and global rules for full-stack development, UI/UX, engineering discipline and autonomous agent workflows. One prompt installs them into any AI coding tool, and every skill is security-checked with [NVIDIA SkillSpector](https://github.com/NVIDIA/SkillSpector) before it is used.
+A public collection of **85 agent skills** and global rules for full-stack development, UI/UX, engineering discipline and autonomous agent workflows. One prompt installs them into any AI coding tool, and every skill is security-checked with [NVIDIA SkillSpector](https://github.com/NVIDIA/SkillSpector) before it is used.
 
 **Contents:** [Quick Start](#quick-start-copy-this-prompt) · [Directions](#directions) · [Command Reference](#command-reference) · [Repo Layout](#repo-layout) · [Lifecycle](#the-unified-development-lifecycle) · [UI & UX Standards](#global-ui--ux-development-standards-v10---2026-11-04) · [Skill Catalog](#skill-catalog)
 
@@ -219,7 +219,7 @@ Apply these standards whenever creating, modifying or reviewing any software int
 
 ## Skill Catalog
 
-All 84 skills by group. Groups 8 to 11 are tracked upstream: `sync` pulls their newest versions and security-checks them.
+All 85 skills by group. Groups 8 to 11 are tracked upstream: `sync` pulls their newest versions and security-checks them.
 
 ### 1. Frontend Agent Skills: Multi-Agent UX Debate (10)
 Source: [`hueyexe/frontend-agent-skills`](https://github.com/hueyexe/frontend-agent-skills). Every UI/UX decision is argued from distinct viewpoints before the best UX is synthesized.
@@ -338,7 +338,7 @@ Source: [`benjitaylor/agentation`](https://github.com/benjitaylor/agentation)
 | `supabase-postgres-best-practices` | [`supabase/agent-skills`](https://github.com/supabase/agent-skills) | Postgres performance and schema design |
 | `mcp-builder` | [`anthropics/skills`](https://github.com/anthropics/skills) | Build and evaluate MCP servers |
 
-### 9. React, Web & Design (6, tracked upstream)
+### 9. React, Web & Design (7, tracked upstream)
 
 | Skill | Source | What it does |
 |---|---|---|
@@ -348,6 +348,7 @@ Source: [`benjitaylor/agentation`](https://github.com/benjitaylor/agentation)
 | `web-design-guidelines` | [`vercel-labs/agent-skills`](https://github.com/vercel-labs/agent-skills) | Review UI against web design guidelines |
 | `frontend-design` | [`anthropics/skills`](https://github.com/anthropics/skills) | Distinctive, non-generic frontend design |
 | `web-perf` | [`cloudflare/skills`](https://github.com/cloudflare/skills) | Web performance and Core Web Vitals |
+| `figma-implement-design` | [`openai/skills`](https://github.com/openai/skills) | Turn Figma designs into code (governed by the [Figma Developer Terms](https://www.figma.com/legal/developer-terms/), not open source) |
 
 ### 10. Testing, Code Quality & Security (6, tracked upstream)
 
