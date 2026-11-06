@@ -123,7 +123,15 @@ These rules apply globally across all sessions, projects, application creation, 
 
 ---
 
-## 8. Execution Order Across All Tools
+## 8. Skill Security (NVIDIA SkillSpector)
+- **Check every skill before it is used**: Whenever a skill is added, updated or installed, it must pass `./scripts/skills.sh scan` (or `sync` / `install`, which run the same check).
+- **Review blocked skills with `skill-inspector`**: Treat the skill as untrusted, never run its scripts during review, read the source behind every HIGH or CRITICAL finding, and give an `APPROVE`, `CAUTION` or `REJECT` verdict with evidence.
+- **The user decides**: Show the verdict to the user and record it with `./scripts/skills.sh approve` only after they agree. Never approve a `REJECT`.
+- **Keep scans local**: Use `--no-llm` unless the user asks for LLM analysis.
+
+---
+
+## 9. Execution Order Across All Tools
 Whenever you build any app, feature, or software:
 1. **Start on Superpowers**: `brainstorming` -> `writing-plans`
 2. **Spec Kit**: `speckit-specify` -> `speckit-clarify` -> `speckit-plan`

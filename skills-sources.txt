@@ -21,3 +21,6 @@ vercel-labs/agent-skills        skills/react-best-practices
 
 # Playwright CLI (browser automation)
 npm:@playwright/cli             skills/playwright-cli
+
+# NVIDIA SkillSpector: security review of skills before they are added or installed
+NVIDIA/SkillSpector             skills/skill-inspector

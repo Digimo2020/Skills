@@ -13,23 +13,43 @@ Set up my agent skills from https://github.com/Digimo2020/Skills.
 
 1. If ~/Skills does not exist, run: git clone https://github.com/Digimo2020/Skills.git ~/Skills
    If it exists, run: git -C ~/Skills pull
-2. Run: ~/Skills/scripts/skills.sh update
-   This pulls the newest version of every upstream skill listed in skills-sources.txt,
-   then copies all skills into the skill folders of the AI tools on this machine
-   (~/.claude/skills, ~/.agents/skills, ~/.gemini/skills, ~/.gemini/antigravity/skills).
-3. If step 2 changed any files in ~/Skills, commit them with the message
+2. If the skillspector command is missing, install NVIDIA SkillSpector (needs uv):
+   uv tool install git+https://github.com/NVIDIA/skillspector.git
+   If it exists, update it: uv tool upgrade skillspector
+3. Run: ~/Skills/scripts/skills.sh update
+   This pulls the newest version of every upstream skill in skills-sources.txt, security-checks
+   every new or changed skill with SkillSpector, and copies only the skills that pass into the
+   AI tools on this machine (~/.claude/skills, ~/.agents/skills, ~/.gemini/skills,
+   ~/.gemini/antigravity/skills).
+4. If any skill is reported as BLOCKED, review it with the skill-inspector skill
+   (the new version is in ~/Skills/quarantine/<skill>). Show me your verdict and evidence.
+   Only after I agree, record it with:
+   ~/Skills/scripts/skills.sh approve <skill> <APPROVE|CAUTION> "<reason>"
+   Never approve a REJECT verdict.
+5. If any files in ~/Skills changed, commit them with the message
    "chore: update upstream skills" and push to origin main.
-4. Read ~/Skills/AGENTS.md and follow its rules for all work in this session.
-5. Tell me which skills were added or updated, and anything that failed.
+6. Read ~/Skills/AGENTS.md and follow its rules for all work in this session.
+7. Tell me which skills were added, updated or blocked, and anything that failed.
 ```
 
 **Chat-only tools** (ChatGPT, Claude.ai, Gemini web) can't run terminal commands, so they can't use the prompt. Download a skill's folder from `skills/` as a zip and upload it wherever the app accepts skills or project files. For the rules alone, paste `AGENTS.md` into the custom instructions.
 
+### Security Check (NVIDIA SkillSpector)
+
+No skill reaches the repo or an AI tool without a security check:
+
+1. [SkillSpector](https://github.com/NVIDIA/SkillSpector) statically scans the skill without running it (`--no-llm`, so file contents stay on your machine; only dependency names go to OSV.dev for known-vulnerability lookups).
+2. `SAFE` or `CAUTION` passes. `DO_NOT_INSTALL` blocks the skill: a new skill is held in `quarantine/`, and an updated one keeps its previous version.
+3. A blocked skill is reviewed with the **`skill-inspector`** skill, which reads the flagged source and gives an `APPROVE`, `CAUTION` or `REJECT` verdict. The scanner matches keywords, so documentation that mentions `.env` or tokens is often flagged without being dangerous.
+4. Every verdict is stored with the skill's content hash in [`skills-verified.txt`](skills-verified.txt). If any file in a skill changes, the hash changes and the skill is checked again.
+
 ### Add or Update Skills
 
 - **Add an upstream skill:** add one line to [`skills-sources.txt`](skills-sources.txt) (`owner/repo  path/to/skill`, or `npm:<package>  path/to/skill`), then run `./scripts/skills.sh sync` and push.
+- **Add your own skill:** put its folder in `skills/` and run `./scripts/skills.sh scan`.
 - **Pull the newest versions:** `./scripts/skills.sh sync` (repo only) or `./scripts/skills.sh update` (repo, then every AI tool on this machine).
 - **Install on this machine only:** `./scripts/skills.sh install`.
+- **Check every skill:** `./scripts/skills.sh scan`.
 
 ---
 
@@ -178,7 +198,7 @@ Sourced from [`benjitaylor/agentation`](https://github.com/benjitaylor/agentatio
 
 ---
 
-## 8. Backend, Data, React & Browser Skills (tracked upstream)
+## 8. Backend, Data, React, Browser & Security Skills (tracked upstream)
 Kept current with `./scripts/skills.sh sync` from the sources in [`skills-sources.txt`](skills-sources.txt).
 
 | Skill | Source | Domain |
@@ -190,8 +210,9 @@ Kept current with `./scripts/skills.sh sync` from the sources in [`skills-source
 | **`supabase-postgres-best-practices`** | [`supabase/agent-skills`](https://github.com/supabase/agent-skills) | Postgres performance & schema design |
 | **`react-best-practices`** | [`vercel-labs/agent-skills`](https://github.com/vercel-labs/agent-skills) | React & Next.js performance |
 | **`playwright-cli`** | [`@playwright/cli`](https://www.npmjs.com/package/@playwright/cli) | Browser automation & testing |
+| **`skill-inspector`** | [`NVIDIA/SkillSpector`](https://github.com/NVIDIA/SkillSpector) | Security review of skills before install |
 
 ---
 
 ## Global Integration Status
-All eight skill groups (**`frontend-agent-skills`**, **`ui-ux-pro-max`**, **`taste-skill`**, **`superpowers`**, **`spec-kit`**, **`gemini-cli`**, **`agentation`**, and the upstream backend/data skills) containing **66 skills** are installed globally under `~/.gemini/config/plugins/` and enabled machine-wide. Their global rules automatically activate whenever creating any applications, designing UI/UX, debating user flows, debugging, testing, planning, selecting UI elements, or executing software tasks.
+All eight skill groups (**`frontend-agent-skills`**, **`ui-ux-pro-max`**, **`taste-skill`**, **`superpowers`**, **`spec-kit`**, **`gemini-cli`**, **`agentation`**, and the upstream backend/data skills) containing **67 skills** are installed globally under `~/.gemini/config/plugins/` and enabled machine-wide. Their global rules automatically activate whenever creating any applications, designing UI/UX, debating user flows, debugging, testing, planning, selecting UI elements, or executing software tasks.

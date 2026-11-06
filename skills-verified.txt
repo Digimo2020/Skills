@@ -1,0 +1,72 @@
+# Security verdicts for each skill, written by ./scripts/skills.sh. Do not edit by hand.
+# <skill>  <content-hash>  <verdict>  <scan|review>  <note>
+# A skill passes the gate only while its files match the hash. Any change triggers a new check.
+# "scan" = NVIDIA SkillSpector static scan rated it SAFE or CAUTION.
+# "review" = SkillSpector blocked it; a skill-inspector source review approved it (see note).
+accessibility-inclusive-design  5ccacd0d2adffc18  SAFE  scan  SkillSpector static scan
+agent-tui  8489b6fa49168f0a  SAFE  scan  SkillSpector static scan
+agentation  69bea19612ef9d46  SAFE  scan  SkillSpector static scan
+agentation-self-driving  4d600840d14db8a1  SAFE  scan  SkillSpector static scan
+banner-design  98309e5a03c55a8f  SAFE  scan  SkillSpector static scan
+behavioral-evals  174b8817e2d2656a  SAFE  scan  SkillSpector static scan
+brainstorming  435c53e6077c585b  CAUTION  review  Runs a local preview server (server.cjs) and opens it with execFile, no shell; stop script deletes only its own state file
+brand  9c1cb4788db5d6a5  CAUTION  review  Node scripts read brand files and write design tokens/prompt text locally; no network calls
+ci  76ce79c82eb38017  SAFE  scan  SkillSpector static scan
+code-reviewer  e68307ffcb25dcda  SAFE  scan  SkillSpector static scan
+design  0d80e599ac3f42e1  CAUTION  review  Image scripts read GEMINI/ATLASCLOUD/MUAPI keys from env or ~/.claude/.env and send each only to its own API
+design-system  5efa7bad5bafdd55  CAUTION  scan  SkillSpector static scan
+design-systems-frontend-architecture  3926fbac19be4944  CAUTION  scan  SkillSpector static scan
+design-taste-frontend  1d4ff01c096e6051  CAUTION  review  Same content as taste-skill: headless Chrome screenshot scripts, no external transmission
+diagnosing-superpowers  7f07b04162a36ae5  CAUTION  scan  SkillSpector static scan
+dispatching-parallel-agents  62cea6b4ab440a6c  SAFE  scan  SkillSpector static scan
+docs-changelog  631c0c05ff1dd269  SAFE  scan  SkillSpector static scan
+docs-writer  6da99668ee679294  SAFE  scan  SkillSpector static scan
+executing-plans  068e46aab72f8998  CAUTION  scan  SkillSpector static scan
+finishing-a-development-branch  1ac29db88a574e47  SAFE  scan  SkillSpector static scan
+forms-inputs-checkout  4f728532721d6682  SAFE  scan  SkillSpector static scan
+frontend-agent-skills  49987aa2cb3a5ed1  SAFE  scan  SkillSpector static scan
+gemini-cli  5c2c152b30a90c18  SAFE  scan  SkillSpector static scan
+github-issue-creator  774569f704ab301a  SAFE  scan  SkillSpector static scan
+information-architecture-navigation  5ded0e8d80350a67  SAFE  scan  SkillSpector static scan
+interaction-patterns-components  98dd5b2618545f9b  SAFE  scan  SkillSpector static scan
+neon  257d11ea47688b0b  CAUTION  review  Docs for Neon CLI/MCP. Mentions access tokens and claim URLs; user must authorize Neon access
+neon-postgres  25a49b90069fa7ee  APPROVE  review  Docs only. Hits are references to its own docs and 'neon branches reset' CLI usage
+node  ffdaf44bd780603c  APPROVE  review  Docs only. PE3/AE1 hits are Node .env and graceful-shutdown guidance, not credential access
+playwright-cli  c9423a34a083c4d1  CAUTION  review  Microsoft Playwright CLI docs. Drives a browser and can save auth storage state; docs say not to commit it
+pr-address-comments  6f53919f6171e02a  SAFE  scan  SkillSpector static scan
+pr-creator  4d7555781bbde772  SAFE  scan  SkillSpector static scan
+react-best-practices  99c51ec5786b76eb  APPROVE  review  Docs only. dangerouslySetInnerHTML appears in React example code
+receiving-code-review  a2e9c70c0f2630d5  SAFE  scan  SkillSpector static scan
+requesting-code-review  f0e51793c1ca19a9  SAFE  scan  SkillSpector static scan
+review-duplication  75d29278a977389a  SAFE  scan  SkillSpector static scan
+skill-inspector  dcc9a17c9913b64c  SAFE  scan  SkillSpector static scan
+slides  3a65335c660ceec3  SAFE  scan  SkillSpector static scan
+spec-kit  e77ca7da51c39b53  SAFE  scan  SkillSpector static scan
+speckit-analyze  78498e6f7d38021f  SAFE  scan  SkillSpector static scan
+speckit-checklist  d485b93417c42b69  SAFE  scan  SkillSpector static scan
+speckit-clarify  a4f3e927bf14fdb8  SAFE  scan  SkillSpector static scan
+speckit-constitution  3d48842a3bd9e2a4  SAFE  scan  SkillSpector static scan
+speckit-converge  874b21052ac79801  SAFE  scan  SkillSpector static scan
+speckit-implement  c0d379e9e7df160d  SAFE  scan  SkillSpector static scan
+speckit-plan  c67e9074cc767417  SAFE  scan  SkillSpector static scan
+speckit-specify  4eaa52b448873ddf  SAFE  scan  SkillSpector static scan
+speckit-tasks  0fb683764d678144  SAFE  scan  SkillSpector static scan
+string-reviewer  45639c929b0704dc  SAFE  scan  SkillSpector static scan
+subagent-driven-development  0f1a77c882e3cae6  CAUTION  scan  SkillSpector static scan
+supabase  e559feec767b6b2e  CAUTION  review  Supabase MCP/CLI guidance; reads .mcp.json to check setup and recommends scoped tokens
+supabase-postgres-best-practices  35fc91b01a833965  SAFE  scan  SkillSpector static scan
+systematic-debugging  04b984f3b53382ee  APPROVE  review  Docs only. Keychain/printenv lines are a debugging example; no scripts that act
+taste-skill  90517c0237c147d0  CAUTION  review  Node scripts launch headless Chrome on 127.0.0.1 for screenshots/perf; flagged HTML comments are asset docs
+test-driven-development  95c46909a4d6a6e9  SAFE  scan  SkillSpector static scan
+tui-tester  60126408a1487bbb  SAFE  scan  SkillSpector static scan
+ui-styling  e85fb3bcf4078564  CAUTION  scan  SkillSpector static scan
+ui-ux-pro-max  ac5e90c15aeef7d8  CAUTION  review  Design data CSVs plus a font-catalog refresh script that needs GOOGLE_FONTS_API_KEY; hits are CSV text
+ui-visual-composition  1be8596d7db53f8f  SAFE  scan  SkillSpector static scan
+using-git-worktrees  4bdf014c762f50bf  SAFE  scan  SkillSpector static scan
+using-superpowers  2721b676d8f22ba6  CAUTION  scan  SkillSpector static scan
+ux-research-discovery-testing  403303ce044a1705  SAFE  scan  SkillSpector static scan
+ux-usability-foundations  34c40a2c90706ce4  SAFE  scan  SkillSpector static scan
+ux-writing-content-design  27c5c64c4dfad139  CAUTION  scan  SkillSpector static scan
+verification-before-completion  2e5c5f8225aa6e3e  SAFE  scan  SkillSpector static scan
+writing-plans  1a3821c7a1e2616f  SAFE  scan  SkillSpector static scan
+writing-skills  29a46d2ebb847130  APPROVE  review  Guide for writing skills; ~/.claude/skills grep is an example. render-graphs.js only runs Graphviz dot
