@@ -1,6 +1,6 @@
 # Universal Skills & Engineering Framework
 
-A public collection of **67 agent skills** and global rules for full-stack development, UI/UX, engineering discipline and autonomous agent workflows. One prompt installs them into any AI coding tool, and every skill is security-checked with [NVIDIA SkillSpector](https://github.com/NVIDIA/SkillSpector) before it is used.
+A public collection of **84 agent skills** and global rules for full-stack development, UI/UX, engineering discipline and autonomous agent workflows. One prompt installs them into any AI coding tool, and every skill is security-checked with [NVIDIA SkillSpector](https://github.com/NVIDIA/SkillSpector) before it is used.
 
 **Contents:** [Quick Start](#quick-start-copy-this-prompt) · [Directions](#directions) · [Command Reference](#command-reference) · [Repo Layout](#repo-layout) · [Lifecycle](#the-unified-development-lifecycle) · [UI & UX Standards](#global-ui--ux-development-standards-v10---2026-11-04) · [Skill Catalog](#skill-catalog)
 
@@ -219,7 +219,7 @@ Apply these standards whenever creating, modifying or reviewing any software int
 
 ## Skill Catalog
 
-All 67 skills by group. Skills in the last group are tracked upstream and refreshed by `sync`.
+All 84 skills by group. Groups 8 to 11 are tracked upstream: `sync` pulls their newest versions and security-checks them.
 
 ### 1. Frontend Agent Skills: Multi-Agent UX Debate (10)
 Source: [`hueyexe/frontend-agent-skills`](https://github.com/hueyexe/frontend-agent-skills). Every UI/UX decision is argued from distinct viewpoints before the best UX is synthesized.
@@ -322,16 +322,47 @@ Source: [`benjitaylor/agentation`](https://github.com/benjitaylor/agentation)
 | `agentation` | Toolbar to click and select any UI element, with exact selectors |
 | `agentation-self-driving` | Autonomous UI critique in a browser |
 
-### 8. Backend, Data, Browser & Security (8, tracked upstream)
-Sources are listed in [`skills-sources.txt`](skills-sources.txt).
+### 8. Backend & Data (11, tracked upstream)
 
 | Skill | Source | What it does |
 |---|---|---|
 | `node` | [`mcollina/skills`](https://github.com/mcollina/skills) | Node.js best practices |
+| `fastify` | [`mcollina/skills`](https://github.com/mcollina/skills) | Fastify APIs: plugins, hooks, auth, config |
+| `typescript-magician` | [`mcollina/skills`](https://github.com/mcollina/skills) | Advanced TypeScript types and inference |
 | `neon` | [`neondatabase/agent-skills`](https://github.com/neondatabase/agent-skills) | Neon backend: Postgres, Auth, Storage, Functions, AI Gateway |
 | `neon-postgres` | [`neondatabase/agent-skills`](https://github.com/neondatabase/agent-skills) | Neon Postgres connections, branching, migrations |
+| `neon-auth` | [`neondatabase/agent-skills`](https://github.com/neondatabase/agent-skills) | Login, users and sessions on Neon |
+| `neon-functions` | [`neondatabase/agent-skills`](https://github.com/neondatabase/agent-skills) | Long-running serverless functions on Neon |
+| `neon-object-storage` | [`neondatabase/agent-skills`](https://github.com/neondatabase/agent-skills) | S3-compatible file storage that branches with your database |
 | `supabase` | [`supabase/agent-skills`](https://github.com/supabase/agent-skills) | Supabase platform |
 | `supabase-postgres-best-practices` | [`supabase/agent-skills`](https://github.com/supabase/agent-skills) | Postgres performance and schema design |
+| `mcp-builder` | [`anthropics/skills`](https://github.com/anthropics/skills) | Build and evaluate MCP servers |
+
+### 9. React, Web & Design (6, tracked upstream)
+
+| Skill | Source | What it does |
+|---|---|---|
 | `react-best-practices` | [`vercel-labs/agent-skills`](https://github.com/vercel-labs/agent-skills) | React and Next.js performance |
+| `composition-patterns` | [`vercel-labs/agent-skills`](https://github.com/vercel-labs/agent-skills) | React component composition |
+| `react-view-transitions` | [`vercel-labs/agent-skills`](https://github.com/vercel-labs/agent-skills) | Page and element transitions in React |
+| `web-design-guidelines` | [`vercel-labs/agent-skills`](https://github.com/vercel-labs/agent-skills) | Review UI against web design guidelines |
+| `frontend-design` | [`anthropics/skills`](https://github.com/anthropics/skills) | Distinctive, non-generic frontend design |
+| `web-perf` | [`cloudflare/skills`](https://github.com/cloudflare/skills) | Web performance and Core Web Vitals |
+
+### 10. Testing, Code Quality & Security (6, tracked upstream)
+
+| Skill | Source | What it does |
+|---|---|---|
 | `playwright-cli` | [`@playwright/cli`](https://www.npmjs.com/package/@playwright/cli) | Browser automation and testing |
+| `webapp-testing` | [`anthropics/skills`](https://github.com/anthropics/skills) | Test web apps with Playwright |
+| `find-bugs` | [`getsentry/skills`](https://github.com/getsentry/skills) | Hunt for bugs in code |
+| `code-simplifier` | [`getsentry/skills`](https://github.com/getsentry/skills) | Simplify and clean up code |
+| `security-review` | [`getsentry/skills`](https://github.com/getsentry/skills) | Security review of code (OWASP-based) |
 | `skill-inspector` | [`NVIDIA/SkillSpector`](https://github.com/NVIDIA/SkillSpector) | Security review of skills before install |
+
+### 11. Payments & Deployment (2, tracked upstream)
+
+| Skill | Source | What it does |
+|---|---|---|
+| `stripe-best-practices` | [`stripe/ai`](https://github.com/stripe/ai) | Stripe payments done correctly |
+| `deploy-to-vercel` | [`vercel-labs/agent-skills`](https://github.com/vercel-labs/agent-skills) | Deploy apps to Vercel |
