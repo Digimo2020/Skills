@@ -94,18 +94,7 @@ These rules apply globally across all sessions, projects, application creation, 
 
 ---
 
-## 6. Project Management & Workflow Tracking (MakePlane)
-- **Decompose Work into Work Items**: Break down non-trivial work into initiatives, modules/epics, and work items/tasks.
-- **Track Progress and States**: Keep items categorized by state (`backlog`, `unstarted`, `started`, `completed`) with clear priority (`urgent`, `high`, `medium`, `low`).
-- **Plane Tool Integration**: When a Plane workspace or MCP server is available, leverage it to manage work items and cycles.
-- **Git Branch Naming**: Strictly follow `<type>/<work-item-id>-<short-description>`.
-- **Pull Request Creation**: Prefix title with work item ID: `[WORK-ITEM-ID] <type>: <concise summary>`.
-- **Release Notes**: Parse commits into user-facing sections without internal ticket IDs or raw PR numbers.
-- **Internationalization (i18n)**: Enforce Do-Not-Translate (DNT) terms and CLDR plural forms.
-
----
-
-## 7. Strict Engineering, Quality & Code Review (Google Gemini CLI)
+## 6. Strict Engineering, Quality & Code Review (Google Gemini CLI)
 - **Zero-Tolerance Typing**: Strictly forbid unvalidated `any` and unconstrained `unknown`. Narrow all unknown types with type guards or Zod schemas.
 - **Promise & Error Safety**: Never leave unhandled floating promises (`@typescript-eslint/no-floating-promises`). Exhaustive matching in `switch` statements (`checkExhaustive`).
 - **Testing Hygiene**:
@@ -120,7 +109,7 @@ These rules apply globally across all sessions, projects, application creation, 
 
 ---
 
-## 8. Visual Selection & Feedback (Agentation)
+## 7. Visual Selection & Feedback (Agentation)
 - **Select Any Part of Apps**: Whenever creating React / Next.js / frontend web applications, install `agentation` as a dev dependency and mount `<Agentation />` in development mode:
   ```tsx
   {process.env.NODE_ENV === "development" && (
@@ -134,12 +123,11 @@ These rules apply globally across all sessions, projects, application creation, 
 
 ---
 
-## 9. Execution Order Across All Tools
+## 8. Execution Order Across All Tools
 Whenever you build any app, feature, or software:
 1. **Start on Superpowers**: `brainstorming` -> `writing-plans`
 2. **Spec Kit**: `speckit-specify` -> `speckit-clarify` -> `speckit-plan`
 3. **Multi-Agent UX Debate & Global Standards**: Apply `Global UI & UX Development Standards (v1.0)` and convene `frontend-agent-skills` to debate alternatives and synthesize the best-in-class UX; style with `ui-ux-pro-max` and `taste-skill`
-4. **Plane**: `branch-name` -> work items & sprint cycles
-5. **Superpowers + Gemini CLI**: `test-driven-development` -> strict typing & implementation
-6. **Agentation**: Mount `<Agentation />` toolbar to visually click & select any part of the app
-7. **Verification & Review**: Complete journey testing -> `verification-before-completion` -> `review-duplication` -> `code-reviewer` -> `create-pull-request`
+4. **Superpowers + Gemini CLI**: `test-driven-development` -> strict typing & implementation
+5. **Agentation**: Mount `<Agentation />` toolbar to visually click & select any part of the app
+6. **Verification & Review**: Complete journey testing -> `verification-before-completion` -> `review-duplication` -> `code-reviewer` -> `pr-creator`

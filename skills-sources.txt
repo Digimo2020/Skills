@@ -1,0 +1,23 @@
+# Upstream skill sources pulled into skills/ by:  ./scripts/skills.sh sync
+#
+# One skill per line:  <source>  <path-to-skill-folder-inside-source>
+#   <source> is either a GitHub repo (owner/repo) or an npm package (npm:<package>)
+# The skill keeps its folder name. Add a line here to add a skill; delete it to stop tracking it.
+# Skills that are already in skills/ but not listed here are left alone.
+
+# Node.js (Matteo Collina)
+mcollina/skills                 skills/node
+
+# Neon (Lakebase Postgres)
+neondatabase/agent-skills       skills/neon
+neondatabase/agent-skills       skills/neon-postgres
+
+# Supabase (all skills)
+supabase/agent-skills           skills/supabase
+supabase/agent-skills           skills/supabase-postgres-best-practices
+
+# Vercel
+vercel-labs/agent-skills        skills/react-best-practices
+
+# Playwright CLI (browser automation)
+npm:@playwright/cli             skills/playwright-cli

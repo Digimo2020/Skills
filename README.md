@@ -4,6 +4,35 @@ This repository maintains agent skills and global rules configured for pair prog
 
 ---
 
+## Set Up on Any AI Tool (Copy This Prompt)
+
+Paste the prompt below into any AI coding agent that can run terminal commands: Claude Code, Google Antigravity, Gemini CLI, OpenAI Codex, Cursor and similar. The same prompt works for a first install and for updates.
+
+```text
+Set up my agent skills from https://github.com/Digimo2020/Skills.
+
+1. If ~/Skills does not exist, run: git clone https://github.com/Digimo2020/Skills.git ~/Skills
+   If it exists, run: git -C ~/Skills pull
+2. Run: ~/Skills/scripts/skills.sh update
+   This pulls the newest version of every upstream skill listed in skills-sources.txt,
+   then copies all skills into the skill folders of the AI tools on this machine
+   (~/.claude/skills, ~/.agents/skills, ~/.gemini/skills, ~/.gemini/antigravity/skills).
+3. If step 2 changed any files in ~/Skills, commit them with the message
+   "chore: update upstream skills" and push to origin main.
+4. Read ~/Skills/AGENTS.md and follow its rules for all work in this session.
+5. Tell me which skills were added or updated, and anything that failed.
+```
+
+**Chat-only tools** (ChatGPT, Claude.ai, Gemini web) can't run terminal commands, so they can't use the prompt. Download a skill's folder from `skills/` as a zip and upload it wherever the app accepts skills or project files. For the rules alone, paste `AGENTS.md` into the custom instructions.
+
+### Add or Update Skills
+
+- **Add an upstream skill:** add one line to [`skills-sources.txt`](skills-sources.txt) (`owner/repo  path/to/skill`, or `npm:<package>  path/to/skill`), then run `./scripts/skills.sh sync` and push.
+- **Pull the newest versions:** `./scripts/skills.sh sync` (repo only) or `./scripts/skills.sh update` (repo, then every AI tool on this machine).
+- **Install on this machine only:** `./scripts/skills.sh install`.
+
+---
+
 ## The Unified Development Lifecycle
 
 Whenever creating or modifying any apps, features, or software, execute across the integrated system in strict order:
@@ -37,25 +66,19 @@ Whenever creating or modifying any apps, features, or software, execute across t
                                      |
                                      v
 +--------------------------------------------------------------------------+
-| 5. MAKEPLANE (Agile Project Management & Tracking)                       |
-|    Work Items -> Modules & Epics -> Cycles -> Branch Naming -> PRs       |
-+--------------------------------------------------------------------------+
-                                     |
-                                     v
-+--------------------------------------------------------------------------+
-| 6. GOOGLE GEMINI CLI (Engineering Standards & Quality)                   |
+| 5. GOOGLE GEMINI CLI (Engineering Standards & Quality)                   |
 |    Strict Types -> Deterministic Tests -> Anti-Duplication -> Docs       |
 +--------------------------------------------------------------------------+
                                      |
                                      v
 +--------------------------------------------------------------------------+
-| 7. AGENTATION (Visual Feedback Toolbar & Element Selection)              |
+| 6. AGENTATION (Visual Feedback Toolbar & Element Selection)              |
 |    Click to select any UI element -> Exact DOM selectors -> MCP sync     |
 +--------------------------------------------------------------------------+
                                      |
                                      v
 +--------------------------------------------------------------------------+
-| 8. EVIDENCE-BASED VERIFICATION & CODE REVIEW                             |
+| 7. EVIDENCE-BASED VERIFICATION & CODE REVIEW                             |
 |    Complete Journey Testing -> verification-before-completion ->         |
 |    review-duplication -> code-reviewer                                   |
 +--------------------------------------------------------------------------+
@@ -143,23 +166,32 @@ Sourced from [`github/spec-kit`](https://github.com/github/spec-kit.git).
 
 ---
 
-## 6. MakePlane (`plane`)
-Sourced from [`makeplane/plane`](https://github.com/makeplane/plane.git).
-* Agile project management (`plane`, `branch-name`, `create-pull-request`, `react-doctor`, `release-notes`, `translate`).
-
----
-
-## 7. Google Gemini CLI (`gemini-cli`)
+## 6. Google Gemini CLI (`gemini-cli`)
 Sourced from [`google-gemini/gemini-cli`](https://github.com/google-gemini/gemini-cli.git).
 * Strict development rules, zero-any typing, code reviewer, review duplication, string reviewer, docs writer, ci, tui tester, behavioral evals.
 
 ---
 
-## 8. Agentation (`agentation`)
+## 7. Agentation (`agentation`)
 Sourced from [`benjitaylor/agentation`](https://github.com/benjitaylor/agentation.git).
 * Visual feedback toolbar, element selection, and autonomous UI critique.
 
 ---
 
+## 8. Backend, Data, React & Browser Skills (tracked upstream)
+Kept current with `./scripts/skills.sh sync` from the sources in [`skills-sources.txt`](skills-sources.txt).
+
+| Skill | Source | Domain |
+|---|---|---|
+| **`node`** | [`mcollina/skills`](https://github.com/mcollina/skills) | Node.js best practices |
+| **`neon`** | [`neondatabase/agent-skills`](https://github.com/neondatabase/agent-skills) | Neon backend: Postgres, Auth, Storage, Functions, AI Gateway |
+| **`neon-postgres`** | [`neondatabase/agent-skills`](https://github.com/neondatabase/agent-skills) | Neon Postgres connections, branching, migrations |
+| **`supabase`** | [`supabase/agent-skills`](https://github.com/supabase/agent-skills) | Supabase platform |
+| **`supabase-postgres-best-practices`** | [`supabase/agent-skills`](https://github.com/supabase/agent-skills) | Postgres performance & schema design |
+| **`react-best-practices`** | [`vercel-labs/agent-skills`](https://github.com/vercel-labs/agent-skills) | React & Next.js performance |
+| **`playwright-cli`** | [`@playwright/cli`](https://www.npmjs.com/package/@playwright/cli) | Browser automation & testing |
+
+---
+
 ## Global Integration Status
-All eight plugins (**`frontend-agent-skills`**, **`ui-ux-pro-max`**, **`taste-skill`**, **`superpowers`**, **`spec-kit`**, **`plane`**, **`gemini-cli`**, and **`agentation`**) containing **65 skills** are installed globally under `~/.gemini/config/plugins/` and enabled machine-wide. Their global rules automatically activate whenever creating any applications, designing UI/UX, debating user flows, debugging, testing, planning, selecting UI elements, or executing software tasks.
+All eight skill groups (**`frontend-agent-skills`**, **`ui-ux-pro-max`**, **`taste-skill`**, **`superpowers`**, **`spec-kit`**, **`gemini-cli`**, **`agentation`**, and the upstream backend/data skills) containing **66 skills** are installed globally under `~/.gemini/config/plugins/` and enabled machine-wide. Their global rules automatically activate whenever creating any applications, designing UI/UX, debating user flows, debugging, testing, planning, selecting UI elements, or executing software tasks.
