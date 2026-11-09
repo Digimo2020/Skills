@@ -1,6 +1,6 @@
 # Universal Skills & Engineering Framework
 
-A public collection of **85 agent skills** and global rules for full-stack development, UI/UX, engineering discipline and autonomous agent workflows. One prompt installs them into any AI coding tool, and every skill is security-checked with [NVIDIA SkillSpector](https://github.com/NVIDIA/SkillSpector) before it is used.
+A public collection of **40 agent skills** and global rules for full-stack development, UI/UX, engineering discipline and autonomous agent workflows. One prompt installs them into any AI coding tool, and every skill is security-checked with [NVIDIA SkillSpector](https://github.com/NVIDIA/SkillSpector) before it is used.
 
 **Contents:** [Quick Start](#quick-start-copy-this-prompt) · [Directions](#directions) · [Command Reference](#command-reference) · [Repo Layout](#repo-layout) · [Lifecycle](#the-unified-development-lifecycle) · [UI & UX Standards](#global-ui--ux-development-standards-v10---2026-11-04) · [Skill Catalog](#skill-catalog)
 
@@ -219,9 +219,9 @@ Apply these standards whenever creating, modifying or reviewing any software int
 
 ## Skill Catalog
 
-All 85 skills by group. Groups 8 to 11 are tracked upstream: `sync` pulls their newest versions and security-checks them.
+All 40 skills by group. Group 8 is tracked upstream: `sync` pulls its newest version and security-checks it.
 
-### 1. Frontend Agent Skills: Multi-Agent UX Debate (10)
+### 1. Frontend Agent Skills: Multi-Agent UX Debate (8)
 Source: [`hueyexe/frontend-agent-skills`](https://github.com/hueyexe/frontend-agent-skills). Every UI/UX decision is argued from distinct viewpoints before the best UX is synthesized.
 
 | Skill | What it does |
@@ -234,21 +234,16 @@ Source: [`hueyexe/frontend-agent-skills`](https://github.com/hueyexe/frontend-ag
 | `forms-inputs-checkout` | Inline forms, validation, clear errors |
 | `ui-visual-composition` | Spacing rhythm, grids, visual hierarchy |
 | `ux-writing-content-design` | Plain language, clear calls to action |
-| `ux-research-discovery-testing` | User testing and cognitive walkthroughs |
-| `design-systems-frontend-architecture` | Design tokens and component contracts |
 
-### 2. UI/UX Pro Max (7)
+### 2. UI/UX Pro Max (4)
 Source: [`nextlevelbuilder/ui-ux-pro-max-skill`](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)
 
 | Skill | What it does |
 |---|---|
 | `ui-ux-pro-max` | 79 UI styles, 192 palettes, 74 font pairings, 119 UX guidelines across 22 stacks |
-| `ui-styling` | Styling tokens, CSS frameworks, Tailwind |
 | `design` | Visual design, logos and responsive layouts |
 | `design-system` | Full design systems: tokens, type, colour, components |
 | `brand` | Brand identity, voice and visual guidelines |
-| `slides` | Presentation design and pacing |
-| `banner-design` | Banners, heroes and promotional visuals |
 
 ### 3. Taste Skill (2)
 Source: [`Leonxlnx/taste-skill`](https://github.com/Leonxlnx/taste-skill)
@@ -258,7 +253,7 @@ Source: [`Leonxlnx/taste-skill`](https://github.com/Leonxlnx/taste-skill)
 | `taste-skill` | Anti-slop UI engine: one section per screen, quiet micro-interactions, responsive at 1440/1024/768/390 |
 | `design-taste-frontend` | Frontend variant of the same taste system |
 
-### 4. Superpowers: Engineering Discipline (15)
+### 4. Superpowers: Engineering Discipline (8)
 Source: [`obra/superpowers`](https://github.com/obra/superpowers)
 
 | Skill | What it does |
@@ -271,13 +266,6 @@ Source: [`obra/superpowers`](https://github.com/obra/superpowers)
 | `systematic-debugging` | Reproduce, isolate the root cause, fix |
 | `verification-before-completion` | Evidence before claiming work is done |
 | `subagent-driven-development` | Delegate plan steps to subagents |
-| `dispatching-parallel-agents` | Run independent tasks in parallel |
-| `using-git-worktrees` | Isolated work in git worktrees |
-| `finishing-a-development-branch` | Decide how to merge finished work |
-| `requesting-code-review` | Ask for review before merging |
-| `receiving-code-review` | Weigh review feedback before acting on it |
-| `writing-skills` | Create and test new skills |
-| `diagnosing-superpowers` | Find out why a session went wrong |
 
 ### 5. GitHub Spec Kit: Specification-Driven Development (10)
 Source: [`github/spec-kit`](https://github.com/github/spec-kit). Order: constitution, specify, clarify, plan, checklist, tasks, analyze, implement, converge.
@@ -295,24 +283,16 @@ Source: [`github/spec-kit`](https://github.com/github/spec-kit). Order: constitu
 | `speckit-implement` | Build from the tasks |
 | `speckit-converge` | Reconcile the build with the spec |
 
-### 6. Google Gemini CLI: Engineering Standards & Review (13)
+### 6. Google Gemini CLI: Engineering Standards & Review (5)
 Source: [`google-gemini/gemini-cli`](https://github.com/google-gemini/gemini-cli)
 
 | Skill | What it does |
 |---|---|
-| `gemini-cli` | Strict development rules and zero-`any` typing |
 | `code-reviewer` | Review local changes or a remote PR |
 | `review-duplication` | Find duplicated or reinvented code |
 | `string-reviewer` | Review user-facing text |
 | `docs-writer` | Write and edit technical docs |
-| `docs-changelog` | Generate release changelogs |
 | `pr-creator` | Create PRs that follow repo conventions |
-| `pr-address-comments` | Work through PR review comments |
-| `github-issue-creator` | Create well-formed GitHub issues |
-| `ci` | Monitor and fix GitHub Actions failures |
-| `behavioral-evals` | Create and run behavioral evaluations |
-| `agent-tui` | Drive terminal UI apps programmatically |
-| `tui-tester` | Test terminal UI rendering and behavior |
 
 ### 7. Agentation: Visual Feedback (2)
 Source: [`benjitaylor/agentation`](https://github.com/benjitaylor/agentation)
@@ -322,48 +302,8 @@ Source: [`benjitaylor/agentation`](https://github.com/benjitaylor/agentation)
 | `agentation` | Toolbar to click and select any UI element, with exact selectors |
 | `agentation-self-driving` | Autonomous UI critique in a browser |
 
-### 8. Backend & Data (11, tracked upstream)
+### 8. Skill Security (1, tracked upstream)
 
 | Skill | Source | What it does |
 |---|---|---|
-| `node` | [`mcollina/skills`](https://github.com/mcollina/skills) | Node.js best practices |
-| `fastify` | [`mcollina/skills`](https://github.com/mcollina/skills) | Fastify APIs: plugins, hooks, auth, config |
-| `typescript-magician` | [`mcollina/skills`](https://github.com/mcollina/skills) | Advanced TypeScript types and inference |
-| `neon` | [`neondatabase/agent-skills`](https://github.com/neondatabase/agent-skills) | Neon backend: Postgres, Auth, Storage, Functions, AI Gateway |
-| `neon-postgres` | [`neondatabase/agent-skills`](https://github.com/neondatabase/agent-skills) | Neon Postgres connections, branching, migrations |
-| `neon-auth` | [`neondatabase/agent-skills`](https://github.com/neondatabase/agent-skills) | Login, users and sessions on Neon |
-| `neon-functions` | [`neondatabase/agent-skills`](https://github.com/neondatabase/agent-skills) | Long-running serverless functions on Neon |
-| `neon-object-storage` | [`neondatabase/agent-skills`](https://github.com/neondatabase/agent-skills) | S3-compatible file storage that branches with your database |
-| `supabase` | [`supabase/agent-skills`](https://github.com/supabase/agent-skills) | Supabase platform |
-| `supabase-postgres-best-practices` | [`supabase/agent-skills`](https://github.com/supabase/agent-skills) | Postgres performance and schema design |
-| `mcp-builder` | [`anthropics/skills`](https://github.com/anthropics/skills) | Build and evaluate MCP servers |
-
-### 9. React, Web & Design (7, tracked upstream)
-
-| Skill | Source | What it does |
-|---|---|---|
-| `react-best-practices` | [`vercel-labs/agent-skills`](https://github.com/vercel-labs/agent-skills) | React and Next.js performance |
-| `composition-patterns` | [`vercel-labs/agent-skills`](https://github.com/vercel-labs/agent-skills) | React component composition |
-| `react-view-transitions` | [`vercel-labs/agent-skills`](https://github.com/vercel-labs/agent-skills) | Page and element transitions in React |
-| `web-design-guidelines` | [`vercel-labs/agent-skills`](https://github.com/vercel-labs/agent-skills) | Review UI against web design guidelines |
-| `frontend-design` | [`anthropics/skills`](https://github.com/anthropics/skills) | Distinctive, non-generic frontend design |
-| `web-perf` | [`cloudflare/skills`](https://github.com/cloudflare/skills) | Web performance and Core Web Vitals |
-| `figma-implement-design` | [`openai/skills`](https://github.com/openai/skills) | Turn Figma designs into code (governed by the [Figma Developer Terms](https://www.figma.com/legal/developer-terms/), not open source) |
-
-### 10. Testing, Code Quality & Security (6, tracked upstream)
-
-| Skill | Source | What it does |
-|---|---|---|
-| `playwright-cli` | [`@playwright/cli`](https://www.npmjs.com/package/@playwright/cli) | Browser automation and testing |
-| `webapp-testing` | [`anthropics/skills`](https://github.com/anthropics/skills) | Test web apps with Playwright |
-| `find-bugs` | [`getsentry/skills`](https://github.com/getsentry/skills) | Hunt for bugs in code |
-| `code-simplifier` | [`getsentry/skills`](https://github.com/getsentry/skills) | Simplify and clean up code |
-| `security-review` | [`getsentry/skills`](https://github.com/getsentry/skills) | Security review of code (OWASP-based) |
 | `skill-inspector` | [`NVIDIA/SkillSpector`](https://github.com/NVIDIA/SkillSpector) | Security review of skills before install |
-
-### 11. Payments & Deployment (2, tracked upstream)
-
-| Skill | Source | What it does |
-|---|---|---|
-| `stripe-best-practices` | [`stripe/ai`](https://github.com/stripe/ai) | Stripe payments done correctly |
-| `deploy-to-vercel` | [`vercel-labs/agent-skills`](https://github.com/vercel-labs/agent-skills) | Deploy apps to Vercel |

@@ -6,49 +6,24 @@
 # Skills that are already in skills/ but not listed here are left alone.
 
 # Node.js (Matteo Collina)
-mcollina/skills                 skills/node
-mcollina/skills                 skills/typescript-magician
-mcollina/skills                 skills/fastify
 
 # Neon (Lakebase Postgres)
-neondatabase/agent-skills       skills/neon
-neondatabase/agent-skills       skills/neon-postgres
-neondatabase/agent-skills       skills/neon-auth
-neondatabase/agent-skills       skills/neon-functions
-neondatabase/agent-skills       skills/neon-object-storage
 
 # Supabase (all skills)
-supabase/agent-skills           skills/supabase
-supabase/agent-skills           skills/supabase-postgres-best-practices
 
 # Vercel
-vercel-labs/agent-skills        skills/react-best-practices
-vercel-labs/agent-skills        skills/web-design-guidelines
-vercel-labs/agent-skills        skills/composition-patterns
-vercel-labs/agent-skills        skills/react-view-transitions
-vercel-labs/agent-skills        skills/deploy-to-vercel
 
 # Playwright CLI (browser automation)
-npm:@playwright/cli             skills/playwright-cli
 
 # NVIDIA SkillSpector: security review of skills before they are added or installed
 NVIDIA/SkillSpector             skills/skill-inspector
 
 # Anthropic
-anthropics/skills               skills/frontend-design
-anthropics/skills               skills/webapp-testing
-anthropics/skills               skills/mcp-builder
 
 # Sentry
-getsentry/skills                skills/find-bugs
-getsentry/skills                skills/security-review
-getsentry/skills                skills/code-simplifier
 
 # Stripe
-stripe/ai                       providers/agent-plugins/plugin/skills/stripe-best-practices
 
 # Cloudflare
-cloudflare/skills               skills/web-perf
 
 # OpenAI (Figma): governed by the Figma Developer Terms, not an open-source license
-openai/skills                   skills/.curated/figma-implement-design
