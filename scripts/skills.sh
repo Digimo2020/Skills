@@ -34,6 +34,7 @@ TARGETS=(
   "$HOME/.codex|$HOME/.agents/skills"                           # OpenAI Codex CLI
   "$HOME/.gemini|$HOME/.gemini/skills"                          # Gemini CLI
   "$HOME/.gemini/antigravity|$HOME/.gemini/antigravity/skills"  # Google Antigravity
+  "$HOME/.gemini/config|$HOME/.gemini/config/skills"            # Google Antigravity (Config)
 )
 
 log() { printf '%s\n' "$*"; }

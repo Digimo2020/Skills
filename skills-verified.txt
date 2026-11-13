@@ -1,8 +1,8 @@
-# Security verdicts for each skill, written by ./scripts/skills.sh. Do not edit by hand.
+# "review" = SkillSpector blocked it; a skill-inspector source review approved it (see note).
+# "scan" = NVIDIA SkillSpector static scan rated it SAFE or CAUTION.
 # <skill>  <content-hash>  <verdict>  <scan|review>  <note>
 # A skill passes the gate only while its files match the hash. Any change triggers a new check.
-# "scan" = NVIDIA SkillSpector static scan rated it SAFE or CAUTION.
-# "review" = SkillSpector blocked it; a skill-inspector source review approved it (see note).
+# Security verdicts for each skill, written by ./scripts/skills.sh. Do not edit by hand.
 accessibility-inclusive-design  5ccacd0d2adffc18  SAFE  scan  SkillSpector static scan
 agentation  69bea19612ef9d46  SAFE  scan  SkillSpector static scan
 agentation-self-driving  4d600840d14db8a1  SAFE  scan  SkillSpector static scan
@@ -16,6 +16,7 @@ docs-writer  6da99668ee679294  SAFE  scan  SkillSpector static scan
 executing-plans  068e46aab72f8998  CAUTION  scan  SkillSpector static scan
 forms-inputs-checkout  4f728532721d6682  SAFE  scan  SkillSpector static scan
 frontend-agent-skills  49987aa2cb3a5ed1  SAFE  scan  SkillSpector static scan
+human-writing-standard  470ab4d4238cc098  SAFE  scan  SkillSpector static scan
 information-architecture-navigation  5ded0e8d80350a67  SAFE  scan  SkillSpector static scan
 interaction-patterns-components  98dd5b2618545f9b  SAFE  scan  SkillSpector static scan
 pr-creator  4d7555781bbde772  SAFE  scan  SkillSpector static scan
